@@ -12,9 +12,10 @@ namespace Dungeon_Battle
 		public void BattleStage()
 		{
 			Console.Clear();
-			Console.WriteLine($"Lv.{dp.minion.Level} {dp.minion.Name} HP {dp.minion.Hp}");
-			Console.WriteLine($"Lv.{dp.cannonminion.Level} {dp.cannonminion.Name} HP {dp.cannonminion.Hp}");
-			Console.WriteLine($"Lv.{dp.emptyworm.Level} {dp.emptyworm.Name} HP {dp.emptyworm.Hp}");
+			for (int i = 0; i < dp.monsterlist.Count; i++)
+			{
+				Console.WriteLine($"Lv.{dp.monsterlist[i].Level} {dp.monsterlist[i].Name} HP {dp.monsterlist[i].Hp}");
+			}
 			Console.WriteLine();
 			Console.WriteLine();
 			Console.WriteLine("[내정보]");
@@ -32,6 +33,39 @@ namespace Dungeon_Battle
 			{
 				case 1: ;
 			}
+		}
+
+		public void MonsterSelect()
+		{
+			Console.Clear();
+			for(int i = 0; i < dp.monsterlist.Count; i++)
+			{
+				Console.WriteLine($"{i} Lv.{dp.monsterlist[i].Level} {dp.monsterlist[i].Name} HP {dp.monsterlist[i].Hp}");			
+			}
+			Console.WriteLine();
+			Console.WriteLine();
+			Console.WriteLine("[내정보]");
+			Console.WriteLine($"Lv.{dp.player.Level}  {dp.player.Name} ({dp.player.Job})");
+			Console.WriteLine($"HP {100 / dp.player.Hp}");
+			Console.WriteLine();
+			Console.WriteLine("1. 공격");
+			Console.WriteLine();
+			Console.WriteLine("원하시는 행동을 입력해주세요.");
+			Console.WriteLine(">>");
+
+			int input = dp.CheckValidInput(0, 3);
+
+			switch (input)
+			{
+				case 1:	AtkStage(dp.monsterlist[0]);break;
+				case 2: AtkStage(dp.monsterlist[1]); break;
+				case 3: AtkStage(dp.monsterlist[2]); break; 
+			}
+		}
+
+		public void AtkStage(Monster monter)
+		{
+
 		}
 	}
 }
