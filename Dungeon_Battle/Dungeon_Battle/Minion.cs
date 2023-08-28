@@ -18,6 +18,6 @@ namespace Dungeon_Battle
 			Level = 2;
 			Atk = 5;
 			Hp = 15;
-		}
+		}			
 	}
 }
