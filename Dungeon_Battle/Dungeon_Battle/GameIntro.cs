@@ -6,85 +6,85 @@ using System.Threading.Tasks;
 
 namespace Dungeon_Battle
 {
-    public class DisplayGameIntro
-    {
-        public static DisplayGameIntro _instance = null;
-        public static DisplayGameIntro Instance()
-        {
-            if (_instance == null)
-            {
-                _instance = new DisplayGameIntro();
-            }
-            return _instance;
-        }
+	public class DisplayGameIntro
+	{
+		public static DisplayGameIntro _instance = null;
+		public static DisplayGameIntro Instance()
+		{
+			if (_instance == null)
+			{
+				_instance = new DisplayGameIntro();
+			}
+			return _instance;
+		}
 
-        public Minion minion = new Minion();
-        public CannonMinion cannonminion = new CannonMinion();
-        public EmptyWorm emptyworm = new EmptyWorm();
-        public List<Monster> monsterlist = new List<Monster>();
-        public Player player = new Player("Sungho", "전사", 1, 10, 5, 100, 1500);
+		public Minion minion = new Minion();
+		public CannonMinion cannonminion = new CannonMinion();
+		public EmptyWorm emptyworm = new EmptyWorm();
+		public List<Monster> monsterlist = new List<Monster>();
+		public Player player = new Player("Sungho", "전사", 1, 10, 5, 100, 1500);
 
-        public DisplayGameIntro()
-        {
-            monsterlist.Add(minion);
+		public DisplayGameIntro()
+		{
+			monsterlist.Add(minion);
 			monsterlist.Add(cannonminion);
 			monsterlist.Add(emptyworm);
 		}
-        public void GameIntro()
-        {
-            
-        Console.Clear();
-        Console.WriteLine("스파르타 마을에 오신 여러분 환영합니다.");
-        Console.WriteLine("이곳에서 전전으로 들어가기 전 활동을 할 수 있습니다.");
-        Console.WriteLine();
-        Console.WriteLine("1. 상태보기");
-        Console.WriteLine();
-        Console.WriteLine("2. 인벤토리");
-        Console.WriteLine();
-        Console.WriteLine("3. 던전 입장");
-        Console.WriteLine();
-        Console.WriteLine();
-        Console.WriteLine("4. 종료");
-        Console.WriteLine();
-        Console.WriteLine("원하시는 행동을 입력해주세요.");
+		public void GameIntro()
+		{
+			Dungeon dg = new Dungeon();
+			Console.Clear();
+			Console.WriteLine("스파르타 마을에 오신 여러분 환영합니다.");
+			Console.WriteLine("이곳에서 전전으로 들어가기 전 활동을 할 수 있습니다.");
+			Console.WriteLine();
+			Console.WriteLine("1. 상태보기");
+			Console.WriteLine();
+			Console.WriteLine("2. 인벤토리");
+			Console.WriteLine();
+			Console.WriteLine("3. 던전 입장");
+			Console.WriteLine();
+			Console.WriteLine();
+			Console.WriteLine("4. 종료");
+			Console.WriteLine();
+			Console.WriteLine("원하시는 행동을 입력해주세요.");
 
 			int input = CheckValidInput(0, 4);
 
 			switch (input)
-            {
-                case 1:
+			{
+				case 1:
 
-                    Console.Clear();
-                    Console.WriteLine("Status");
-                    break;
+					Console.Clear();
+					Console.WriteLine("Status");
+					break;
 
-                case 2:
-                    
-                    Console.Clear();
-                    Console.WriteLine("Inventory");
-                    break;
+				case 2:
 
-                case 3:
-                    
-                    Console.Clear();
-                    Console.WriteLine("Dungeon");
+					Console.Clear();
+					Console.WriteLine("Inventory");
+					break;
+
+				case 3:
+
+					Console.Clear();
+					dg.BattleStage();
 
 					break;
 
-                case 4:
+				case 4:
 
-                    Console.Clear();
-                    Console.WriteLine("종료하기");
-                    break;
+					Console.Clear();
+					Console.WriteLine("종료하기");
+					break;
 
-                default:
-                    Console.Clear();
-                    Console.WriteLine("잘못된 입력입니다.");
-                    
-                    break;
-            }
+				default:
+					Console.Clear();
+					Console.WriteLine("잘못된 입력입니다.");
 
-        }
+					break;
+			}
+
+		}
 		public int CheckValidInput(int min, int max)
 		{
 			while (true)
