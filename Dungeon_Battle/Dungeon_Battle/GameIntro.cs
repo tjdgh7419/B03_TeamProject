@@ -17,7 +17,19 @@ namespace Dungeon_Battle
             }
             return _instance;
         }
-        
+
+        public Minion minion = new Minion();
+        public CannonMinion cannonminion = new CannonMinion();
+        public EmptyWorm emptyworm = new EmptyWorm();
+        public List<Monster> monsterlist = new List<Monster>();
+        public Player player = new Player("Sungho", "전사", 1, 10, 5, 100, 1500);
+
+        public DisplayGameIntro()
+        {
+            monsterlist.Add(minion);
+			monsterlist.Add(cannonminion);
+			monsterlist.Add(emptyworm);
+		}
         public void GameIntro()
         {
             
