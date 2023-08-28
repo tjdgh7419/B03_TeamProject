@@ -176,13 +176,47 @@ namespace Dungeon_Battle
 			Console.WriteLine("던전에서 몬스터 3마리를 잡았습니다.");
 			Console.WriteLine();
 			Console.WriteLine($"Lv.{dp.player.Level} {dp.player.Name}");
+			Console.WriteLine($"HP {firstPlayerHp} -> {dp.player.Hp}");
 			Console.WriteLine();
+			Console.WriteLine("0. 다음");
+			Console.WriteLine();
+			Console.Write(">>");
+			dp.minion.Hp = 15;
+			dp.cannonminion.Hp = 25;
+			dp.emptyworm.Hp = 10;
+			
+			int input = dp.CheckValidInput(0, 0);
+
+			switch (input)
+			{
+				case 0: dp.GameIntro(); break;
+			}
 		}
 
 		public void Lose()
 		{
-            Console.WriteLine("패배진입");
-			string input = Console.ReadLine();
+			dp.player.Hp = 0;
+			Console.Clear();
+			Console.WriteLine();
+			Console.WriteLine("You Lose");
+			Console.WriteLine();
+			Console.WriteLine();
+			Console.WriteLine($"Lv.{dp.player.Level} {dp.player.Name}");
+			Console.WriteLine($"HP {firstPlayerHp} -> {dp.player.Hp}");
+			Console.WriteLine();
+			Console.WriteLine("0. 다음");
+			Console.WriteLine();
+			Console.Write(">>");
+			dp.minion.Hp = 15;
+			dp.cannonminion.Hp = 25;
+			dp.emptyworm.Hp = 10;
+
+			int input = dp.CheckValidInput(0, 0);
+
+			switch (input)
+			{
+				case 0: dp.GameIntro(); break;
+			}
 		}
 	}
 }
