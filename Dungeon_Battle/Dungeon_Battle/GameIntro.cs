@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Intrinsics.Arm;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -32,7 +33,7 @@ namespace Dungeon_Battle
 		}
 		public void GameIntro()
 		{
-			Dungeon dg = new Dungeon();
+			Dungeon dg = new Dungeon(player.Hp);
 			Console.Clear();
 			Console.WriteLine("스파르타 마을에 오신 여러분 환영합니다.");
 			Console.WriteLine("이곳에서 전전으로 들어가기 전 활동을 할 수 있습니다.");
