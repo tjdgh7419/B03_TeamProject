@@ -35,15 +35,15 @@ namespace Dungeon_Battle
             switch (keyInfo.Key)
             {
                 case ConsoleKey.D1:
-                    Console.Clear();
+                    
                     NewGame();
                     break;
                 case ConsoleKey.D2:
-                    Console.Clear();
+                    
                     LoadGame();
                     break;
                 case ConsoleKey.D3:
-                    Console.Clear();
+                    
                     QuitGame();
                     break;
                 default:
@@ -57,7 +57,8 @@ namespace Dungeon_Battle
         private static void NewGame()
         {
             Console.WriteLine("새로운 게임 시작하는 중...");
-
+            DisplayGameIntro displayIntro = new DisplayGameIntro();
+            displayIntro.GameIntro();
         }
 
         private static void LoadGame()
