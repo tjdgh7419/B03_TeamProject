@@ -11,6 +11,7 @@ namespace Dungeon_Battle
 
         public void ShowIntro()
         {
+            JobSelect jobSelect = new JobSelect();
             Console.Title = "Dungeon_Battle";
 
             Console.ForegroundColor = ConsoleColor.Green;
@@ -35,8 +36,7 @@ namespace Dungeon_Battle
             switch (keyInfo.Key)
             {
                 case ConsoleKey.D1:
-                    
-                    NewGame();
+                    jobSelect.Job_Select();                 
                     break;
                 case ConsoleKey.D2:
                     
