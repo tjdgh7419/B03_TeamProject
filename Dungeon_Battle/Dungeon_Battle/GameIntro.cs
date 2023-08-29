@@ -33,6 +33,7 @@ namespace Dungeon_Battle
 		}
 		public void GameIntro()
 		{
+			Status status = new Status();
 			Dungeon dg = new Dungeon(player.Hp);
 			Console.Clear();
 			Console.WriteLine("스파르타 마을에 오신 여러분 환영합니다.");
@@ -56,7 +57,7 @@ namespace Dungeon_Battle
 				case 1:
 
 					Console.Clear();
-					Console.WriteLine("Status");
+					status.DisplayMyInfo();
 					break;
 
 				case 2:
