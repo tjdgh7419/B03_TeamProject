@@ -12,13 +12,15 @@ namespace Dungeon_Battle
 	{
 		DisplayGameIntro dp = DisplayGameIntro.Instance();
 		bool deadChk = false;
-		int firstPlayerHp = 0;
-		public Dungeon(int firstPlayerHp)
-		{
-			this.firstPlayerHp = firstPlayerHp;
-		}
+		int firstPlayerHp = 100;
+
+
 		public void BattleStage()
 		{
+			Warrior warrior = new Warrior();
+			Wizard wizard = new Wizard();
+			Bandit bandit = new Bandit();
+			bool skillOn = false;
 			Console.Clear();
 			Console.WriteLine("Battle!!");
 			Console.WriteLine();
@@ -39,15 +41,23 @@ namespace Dungeon_Battle
 			Console.WriteLine($"HP 100 / {dp.player.Hp}");
 			Console.WriteLine();
 			Console.WriteLine("1. 공격");
+			Console.WriteLine("2. 스킬");
 			Console.WriteLine();
 			Console.WriteLine("원하시는 행동을 입력해주세요.");
 			Console.Write(">>");
 
-			int input = dp.CheckValidInput(0, 1);
+			int input = dp.CheckValidInput(0, 2);
 
 			switch (input)
 			{
 				case 1: MonsterSelect(); break;
+				case 2: if(dp.player.Job == "전사")
+					{
+						warrior.skill_2();
+					}
+					break;
+					
+					
 			}
 		}
 

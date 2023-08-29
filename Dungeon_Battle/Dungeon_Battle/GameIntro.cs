@@ -23,7 +23,7 @@ namespace Dungeon_Battle
 		public CannonMinion cannonminion = new CannonMinion();
 		public EmptyWorm emptyworm = new EmptyWorm();
 		public List<Monster> monsterlist = new List<Monster>();
-		public Player player = new Player("Sungho", "전사", 1, 10, 5, 100, 1500, 50);
+		public Player player = new Player("Sungho", "전사", 1, 10, 5, 100, 1500, 50, 0);
 
 		public DisplayGameIntro()
 		{
@@ -34,7 +34,7 @@ namespace Dungeon_Battle
 		public void GameIntro()
 		{
 			Status status = new Status();
-			Dungeon dg = new Dungeon(player.Hp);
+			Dungeon dg = new Dungeon();
 			Console.Clear();
 			Console.WriteLine("스파르타 마을에 오신 여러분 환영합니다.");
 			Console.WriteLine("이곳에서 전전으로 들어가기 전 활동을 할 수 있습니다.");

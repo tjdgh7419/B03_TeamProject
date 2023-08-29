@@ -34,7 +34,7 @@ namespace Dungeon_Battle
 
 		public void skill_2()
 		{
-			Dungeon dg = new Dungeon(dp.player.Hp);
+			Dungeon dg = new Dungeon();
 			dp.player.Mp -= skill2Cost;
 			int monsterHp = 0;
 			double error = 0;
@@ -59,8 +59,10 @@ namespace Dungeon_Battle
 
 			if (monsterCnt <= 2)
 			{
+				int cnt = 0;
 				foreach (int num in liveMonster)
 				{
+					cnt++;
 					monsterHp = dp.monsterlist[num].Hp;
 					error = (dp.player.Atk / (double)100) * 10;
 					Error = (int)Math.Ceiling(error);
@@ -80,11 +82,14 @@ namespace Dungeon_Battle
 					Console.WriteLine();
 					Console.Write(">>");
 
-					int input1 = dp.CheckValidInput(0, 0);
-
-					switch (input1)
+					if (cnt == liveMonster.Count - 1)
 					{
-						case 0: break;
+						int input1 = dp.CheckValidInput(0, 0);
+
+						switch (input1)
+						{
+							case 0: break;
+						}
 					}
 				}
 			}
@@ -92,10 +97,11 @@ namespace Dungeon_Battle
 			{
 				for (int i = 0; i < 2; i++)
 				{
-					var range = Enumerable.Range(0, dp.monsterlist.Count + 1).Where(i => !deadExclude.Contains(i));
+					var range = Enumerable.Range(0, dp.monsterlist.Count).Where(i => !deadExclude.Contains(i));
 					var monRand = new System.Random();
-					int index = monRand.Next(0, (dp.monsterlist.Count + 1) - deadExclude.Count);
+					int index = monRand.Next(0, (dp.monsterlist.Count) - deadExclude.Count);
 					int monVal = range.ElementAt(index);
+					deadExclude.Add(index);
 
 					monsterHp = dp.monsterlist[monVal].Hp;
 					error = (dp.player.Atk / (double)100) * 10;
@@ -116,11 +122,14 @@ namespace Dungeon_Battle
 					Console.WriteLine();
 					Console.Write(">>");
 
-					int input2 = dp.CheckValidInput(0, 0);
-
-					switch (input2)
+					
+					if (i == 0)
 					{
-						case 0: break;
+						int input2 = dp.CheckValidInput(0, 0);
+						switch (input2)
+						{
+							case 0: break;
+						}
 					}
 				}
 			}
