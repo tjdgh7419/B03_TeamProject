@@ -108,10 +108,10 @@ namespace Dungeon_Battle
 			for (int i = 0; i < dp.monsterlist.Count; i++)
 			{
 				if (dp.monsterlist[i].Hp > 0)
-					Console.WriteLine($"{i + 1} Lv.{dp.monsterlist[i].Level} {dp.monsterlist[i].Name} HP {dp.monsterlist[i].Hp}");
+					Console.WriteLine($"{i + 1}. Lv.{dp.monsterlist[i].Level} {dp.monsterlist[i].Name} HP {dp.monsterlist[i].Hp}");
 				else
 				{
-					Console.WriteLine($"{i + 1} Lv.{dp.monsterlist[i].Level} {dp.monsterlist[i].Name} Dead");	
+					Console.WriteLine($"{i + 1}. Lv.{dp.monsterlist[i].Level} {dp.monsterlist[i].Name} Dead");	
 				}
 			}
 			
@@ -123,7 +123,7 @@ namespace Dungeon_Battle
 			Console.WriteLine();
 			Console.WriteLine("1. 공격");
 			Console.WriteLine();
-			Console.WriteLine("원하시는 행동을 입력해주세요.");
+			Console.WriteLine("대상을 선택해주세요.");
 			Console.Write(">>");
 			if(deadChk) Console.WriteLine("잘못된 입력입니다.");
 			deadChk = false;
