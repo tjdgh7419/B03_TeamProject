@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Dungeon_Battle
 {
-	public class Wizard : Skill
+	public interface Skill
 	{
 		public string skill1 { get; set; }
 		public string skill2 { get; set; }
@@ -15,14 +15,7 @@ namespace Dungeon_Battle
 		public int skill1Cost { get; set; }
 		public int skill2Cost { get; set; }
 
-		public void skill_1()
-		{
-
-		}
-
-		public void skill_2()
-		{
-
-		}
+		void skill_1();
+		void skill_2();
 	}
 }

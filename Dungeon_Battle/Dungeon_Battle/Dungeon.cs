@@ -4,6 +4,7 @@ using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Runtime.Intrinsics.Arm;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Dungeon_Battle
@@ -15,6 +16,9 @@ namespace Dungeon_Battle
 		
 		public void BattleStage()
 		{
+			Warrior warrior = new Warrior();
+			Bandit bandit = new Bandit();
+			Wizard wizard = new Wizard();
 			bool skillOn = false;
 			Console.Clear();
 			Console.WriteLine("Battle!!");
@@ -46,15 +50,55 @@ namespace Dungeon_Battle
 			switch (input)
 			{
 				case 1: MonsterSelect(); break;
-				case 2: if(dp.player.Job == "전사")
-					{
-						dp.warrior.skill_1();
-					}
+				case 2: if (dp.player.Job == "전사") SkillSelect(warrior);
+					else if (dp.player.Job == "도적") SkillSelect(bandit);
+					else SkillSelect(wizard);
 					break;		
 			}
 		}
 
-		
+		public void SkillSelect(Skill job)
+		{
+			Console.Clear();
+			Console.WriteLine("Battle!!");
+			Console.WriteLine();
+
+			for (int i = 0; i < dp.monsterlist.Count; i++)
+			{
+				if (dp.monsterlist[i].Hp > 0)
+					Console.WriteLine($"Lv.{dp.monsterlist[i].Level} {dp.monsterlist[i].Name} HP {dp.monsterlist[i].Hp}");
+				else
+				{
+					Console.WriteLine($"Lv.{dp.monsterlist[i].Level} {dp.monsterlist[i].Name} Dead");
+				}
+			}
+			Console.WriteLine();
+			Console.WriteLine();
+			Console.WriteLine("[내정보]");
+			Console.WriteLine($"Lv.{dp.player.Level}  {dp.player.Name} ({dp.player.Job})");
+			Console.WriteLine($"HP 100 / {dp.player.Hp}");
+			Console.WriteLine();
+			Console.WriteLine($"1. {job.skill1} - MP {job.skill1Cost}");
+			Console.WriteLine($"{job.skill1Info}");
+			Console.WriteLine();
+			Console.WriteLine($"2. {job.skill2} - MP {job.skill2Cost}");
+			Console.WriteLine($"{job.skill2Info}");
+			Console.WriteLine();
+			Console.WriteLine("0. 취소");
+			Console.WriteLine();
+			Console.WriteLine("원하시는 행동을 입력해주세요.");
+			Console.Write(">>");
+
+			int input = dp.CheckValidInput(0, 2);
+
+			switch (input)
+			{
+				case 1: job.skill_1(); break;
+				case 2: job.skill_2(); break;
+				case 0: BattleStage(); break;
+					
+			}
+		}
 
 		public void MonsterSelect()
 		{

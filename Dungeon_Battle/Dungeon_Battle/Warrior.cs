@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Dungeon_Battle
 {
-	public class Warrior
+	public class Warrior : Skill
 	{
 		public string skill1 { get; set; }
 		public string skill2 { get; set; }
@@ -26,11 +26,11 @@ namespace Dungeon_Battle
 		}
 
 		DisplayGameIntro dp = DisplayGameIntro.Instance();
-		public int skill_1()
+		public void skill_1()
 		{
 			dp.player.Mp -= skill1Cost;
-			return (int)(dp.player.Atk * 2);
-		}
+            Console.WriteLine("전사스킬 1입니다");
+        }
 
 		public void skill_2()
 		{

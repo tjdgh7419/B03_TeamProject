@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Dungeon_Battle
 {
-	public class Bandit
+	public class Bandit : Skill
 	{
 		public string skill1 { get; set; }
 		public string skill2 { get; set; }
@@ -25,16 +25,17 @@ namespace Dungeon_Battle
 		}
 
 		DisplayGameIntro dp = DisplayGameIntro.Instance();
-		public int skill_1()
+		public void skill_1()
 		{
 			dp.player.Mp -= skill1Cost;
-			return (int)(dp.player.Atk * 1.3);
-		}
+            Console.WriteLine("도적 스킬입니다");
+        }
 
 		public void skill_2()
 		{
 			dp.player.Mp -= skill2Cost;
 			dp.player.Avoidance += 2;
-		}
+            Console.WriteLine("도적 스킬2입니다");
+        }
 	}
 }

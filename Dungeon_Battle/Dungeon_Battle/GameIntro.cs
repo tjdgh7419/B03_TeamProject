@@ -18,15 +18,13 @@ namespace Dungeon_Battle
 			}
 			return _instance;
 		}
-		public Warrior warrior = new Warrior();
-		public Wizard wizard = new Wizard();
-		public Bandit bandit = new Bandit();
+	
 		public Minion minion = new Minion();
 		public CannonMinion cannonminion = new CannonMinion();
 		public EmptyWorm emptyworm = new EmptyWorm();
 		public List<Monster> monsterlist = new List<Monster>();
 		public Player player = new Player("Sungho", "전사", 1, 10, 5, 100, 1500, 50, 0);
-		public int firstPlayerHp;
+		public int firstPlayerHp = 0;
 		public DisplayGameIntro()
 		{
 			monsterlist.Add(minion);
