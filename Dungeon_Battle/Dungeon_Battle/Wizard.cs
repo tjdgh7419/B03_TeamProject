@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Dungeon_Battle
 {
-	internal class Wizard
+	public class Wizard
 	{
 	}
 }

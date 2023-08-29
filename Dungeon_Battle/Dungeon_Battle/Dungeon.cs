@@ -12,14 +12,9 @@ namespace Dungeon_Battle
 	{
 		DisplayGameIntro dp = DisplayGameIntro.Instance();
 		bool deadChk = false;
-		int firstPlayerHp = 100;
-
-
+		
 		public void BattleStage()
 		{
-			Warrior warrior = new Warrior();
-			Wizard wizard = new Wizard();
-			Bandit bandit = new Bandit();
 			bool skillOn = false;
 			Console.Clear();
 			Console.WriteLine("Battle!!");
@@ -53,13 +48,13 @@ namespace Dungeon_Battle
 				case 1: MonsterSelect(); break;
 				case 2: if(dp.player.Job == "전사")
 					{
-						warrior.skill_2();
+						dp.warrior.skill_1();
 					}
-					break;
-					
-					
+					break;		
 			}
 		}
+
+		
 
 		public void MonsterSelect()
 		{
@@ -186,7 +181,7 @@ namespace Dungeon_Battle
 			Console.WriteLine("던전에서 몬스터 3마리를 잡았습니다.");
 			Console.WriteLine();
 			Console.WriteLine($"Lv.{dp.player.Level} {dp.player.Name}");
-			Console.WriteLine($"HP {firstPlayerHp} -> {dp.player.Hp}");
+			Console.WriteLine($"HP {dp.firstPlayerHp} -> {dp.player.Hp}");
 			Console.WriteLine();
 			Console.WriteLine("0. 다음");
 			Console.WriteLine();
@@ -212,7 +207,7 @@ namespace Dungeon_Battle
 			Console.WriteLine();
 			Console.WriteLine();
 			Console.WriteLine($"Lv.{dp.player.Level} {dp.player.Name}");
-			Console.WriteLine($"HP {firstPlayerHp} -> {dp.player.Hp}");
+			Console.WriteLine($"HP {dp.firstPlayerHp} -> {dp.player.Hp}");
 			Console.WriteLine();
 			Console.WriteLine("0. 다음");
 			Console.WriteLine();

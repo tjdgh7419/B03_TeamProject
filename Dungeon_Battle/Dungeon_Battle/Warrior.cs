@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Dungeon_Battle
 {
-	internal class Warrior
+	public class Warrior
 	{
 		public string skill1 { get; set; }
 		public string skill2 { get; set; }
