@@ -82,6 +82,7 @@ namespace Dungeon_Battle
 		{
 			Dungeon dg = new Dungeon();
 			dp.player.Mp -= skill2Cost;
+			int skill2Atk = (int)(dp.player.Atk * 1.5);
 			int monsterHp = 0;
 			double error = 0;
 			int Error = 0;
@@ -110,9 +111,9 @@ namespace Dungeon_Battle
 				{
 					cnt++;
 					monsterHp = dp.monsterlist[num].Hp;
-					error = (dp.player.Atk / (double)100) * 10;
+					error = (skill2Atk / (double)100) * 10;
 					Error = (int)Math.Ceiling(error);
-					player_Atk = playerAtk.Next(dp.player.Atk - Error, dp.player.Atk + Error + 1);
+					player_Atk = playerAtk.Next(skill2Atk - Error, skill2Atk + Error + 1);
 					dp.monsterlist[num].Hp -= player_Atk;
 					Console.Clear();
 					Console.WriteLine("Battle!!");
@@ -150,9 +151,9 @@ namespace Dungeon_Battle
 					deadExclude.Add(index);
 
 					monsterHp = dp.monsterlist[monVal].Hp;
-					error = (dp.player.Atk / (double)100) * 10;
+					error = (skill2Atk / (double)100) * 10;
 					Error = (int)Math.Ceiling(error);
-					player_Atk = playerAtk.Next(dp.player.Atk - Error, dp.player.Atk + Error + 1);
+					player_Atk = playerAtk.Next(skill2Atk - Error, skill2Atk + Error + 1);
 					dp.monsterlist[monVal].Hp -= player_Atk;
 					Console.Clear();
 					Console.WriteLine("Battle!!");
