@@ -25,6 +25,7 @@ namespace Dungeon_Battle
 		public List<Monster> monsterlist = new List<Monster>();
 		public Player player = new Player("Sungho", "마법사", 1, 10, 5, 100, 1500, 50, 0);
 		public int firstPlayerHp = 0;
+		public bool jobChk = false;
 		public DisplayGameIntro()
 		{
 			monsterlist.Add(minion);
@@ -34,11 +35,13 @@ namespace Dungeon_Battle
 		}
 		public void GameIntro()
 		{
+			JobSelect jobSelect = new JobSelect();
 			Status status = new Status();
 			Dungeon dg = new Dungeon();
 			Console.Clear();
+			if(!jobChk) jobSelect.Job_Select();
 			Console.WriteLine("스파르타 마을에 오신 여러분 환영합니다.");
-			Console.WriteLine("이곳에서 전전으로 들어가기 전 활동을 할 수 있습니다.");
+			Console.WriteLine("이곳에서 던전으로 들어가기 전 활동을 할 수 있습니다.");
 			Console.WriteLine();
 			Console.WriteLine("1. 상태보기");
 			Console.WriteLine();
