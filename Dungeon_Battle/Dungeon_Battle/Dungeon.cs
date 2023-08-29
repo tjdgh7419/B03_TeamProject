@@ -37,7 +37,8 @@ namespace Dungeon_Battle
 			Console.WriteLine();
 			Console.WriteLine("[내정보]");
 			Console.WriteLine($"Lv.{dp.player.Level}  {dp.player.Name} ({dp.player.Job})");
-			Console.WriteLine($"HP 100 / {dp.player.Hp}");
+			Console.WriteLine($"HP {dp.firstPlayerHp} / {dp.player.Hp}");
+			Console.WriteLine($"MP {dp.firstPlayerMp} / {dp.player.Mp}");
 			Console.WriteLine();
 			Console.WriteLine("1. 공격");
 			Console.WriteLine("2. 스킬");

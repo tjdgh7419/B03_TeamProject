@@ -18,10 +18,13 @@ namespace Dungeon_Battle
 			Console.WriteLine("상태보기");
 			Console.WriteLine("캐릭터의 정보를 표시합니다.");
 			Console.WriteLine();
+			Console.WriteLine("이 름 : " + dp1.player.Name);
+			Console.WriteLine("직 업 : " + dp1.player.Job);
 			Console.WriteLine("Lv. " + dp1.player.Level);
 			Console.WriteLine("공격력 : " + dp1.player.Atk);
 			Console.WriteLine("방어력 : " + dp1.player.Def);
 			Console.WriteLine("체 력 : " + dp1.player.Hp);
+			Console.WriteLine("마 나 : " + dp1.player.Mp);
 			Console.WriteLine("Gold :" + dp1.player.Gold);
 			Console.WriteLine();
 			Console.WriteLine("0. 나가기");
