@@ -18,7 +18,7 @@ namespace Dungeon_Battle
 			}
 			return _instance;
 		}
-
+	
 		public Minion minion = new Minion();
 		public CannonMinion cannonminion = new CannonMinion();
 		public EmptyWorm emptyworm = new EmptyWorm();

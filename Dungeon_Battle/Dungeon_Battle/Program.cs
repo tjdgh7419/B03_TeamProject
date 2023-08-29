@@ -6,6 +6,7 @@
 		{
 			Intro intro = new Intro();
 			intro.ShowIntro();
+			
         }
 	}
 }

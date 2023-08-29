@@ -13,16 +13,16 @@ namespace Dungeon_Battle
 		DisplayGameIntro dp = DisplayGameIntro.Instance();
 		bool deadChk = false;
 		int firstPlayerHp = 0;
-
 		public Dungeon(int firstPlayerHp)
 		{
 			this.firstPlayerHp = firstPlayerHp;
 		}
 		public void BattleStage()
-		{		
+		{
 			Console.Clear();
 			Console.WriteLine("Battle!!");
 			Console.WriteLine();
+
 			for (int i = 0; i < dp.monsterlist.Count; i++)
 			{
 				if (dp.monsterlist[i].Hp > 0)
