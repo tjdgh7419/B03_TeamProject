@@ -17,7 +17,7 @@ namespace Dungeon_Battle
 		{
 			Name = "공허충";
 			Level = 3;
-			Atk = 9;
+			Atk = 5;
 			Hp = 10;
 		}
 	}
