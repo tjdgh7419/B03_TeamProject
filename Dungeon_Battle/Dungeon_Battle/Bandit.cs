@@ -20,9 +20,10 @@ namespace Dungeon_Battle
 			skill2Info = "회피율이 20% 증가합니다.";
 		}
 
-		public void skill_1()
+		DisplayGameIntro dp = DisplayGameIntro.Instance();
+		public int skill_1()
 		{
-
+			return (int)(dp.player.Atk * 1.3);
 		}
 	}
 }
