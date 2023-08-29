@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Intrinsics.Arm;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -28,9 +29,54 @@ namespace Dungeon_Battle
 		DisplayGameIntro dp = DisplayGameIntro.Instance();
 		public void skill_1()
 		{
-			dp.player.Mp -= skill1Cost;
-            Console.WriteLine("전사스킬 1입니다");
-        }
+			bool deadChk = false;
+			Dungeon dungeon = new Dungeon();
+			int skill1Atk = dp.player.Atk * 2;
+			Console.Clear();
+			Console.WriteLine("Battle!!");
+			Console.WriteLine();
+			for (int i = 0; i < dp.monsterlist.Count; i++)
+			{
+				if (dp.monsterlist[i].Hp > 0)
+					Console.WriteLine($"{i + 1} Lv.{dp.monsterlist[i].Level} {dp.monsterlist[i].Name} HP {dp.monsterlist[i].Hp}");
+				else
+				{
+					Console.WriteLine($"{i + 1} Lv.{dp.monsterlist[i].Level} {dp.monsterlist[i].Name} Dead");
+				}
+			}
+			Console.WriteLine();
+			Console.WriteLine();
+			Console.WriteLine("대상을 선택해주세요.");
+			Console.Write(">>");
+			if (deadChk) Console.WriteLine("잘못된 입력입니다.");
+			deadChk = false;
+
+			int input = dp.CheckValidInput(0, 3);
+
+			switch (input)
+			{
+				case 1:
+					if (dp.monsterlist[0].Hp > 0)
+					{
+						dp.player.Mp -= skill1Cost; dungeon.PlayerAtkStage(dp.monsterlist[0], skill1Atk);
+					}
+					else deadChk = true; skill_1(); break;
+				case 2:
+					if (dp.monsterlist[1].Hp > 0)
+					{
+						dp.player.Mp -= skill1Cost; dungeon.PlayerAtkStage(dp.monsterlist[1], skill1Atk);
+					}
+					else deadChk = true; skill_1(); break;
+				case 3:
+					if (dp.monsterlist[2].Hp > 0)
+					{
+						dp.player.Mp -= skill1Cost; dungeon.PlayerAtkStage(dp.monsterlist[2], skill1Atk);
+					}
+					else deadChk = true; skill_1(); break;
+			}
+
+
+		}
 
 		public void skill_2()
 		{
@@ -122,7 +168,7 @@ namespace Dungeon_Battle
 					Console.WriteLine();
 					Console.Write(">>");
 
-					
+
 					if (i == 0)
 					{
 						int input2 = dp.CheckValidInput(0, 0);

@@ -132,24 +132,24 @@ namespace Dungeon_Battle
 			switch (input)
 			{
 				case 1:
-					if (dp.monsterlist[0].Hp > 0) PlayerAtkStage(dp.monsterlist[0]);
+					if (dp.monsterlist[0].Hp > 0) PlayerAtkStage(dp.monsterlist[0], dp.player.Atk);
 					else deadChk = true; MonsterSelect(); break;
 				case 2:
-					if (dp.monsterlist[1].Hp > 0) PlayerAtkStage(dp.monsterlist[1]);
+					if (dp.monsterlist[1].Hp > 0) PlayerAtkStage(dp.monsterlist[1], dp.player.Atk);
 					else deadChk = true; MonsterSelect(); break;
 				case 3:
-					if (dp.monsterlist[2].Hp > 0) PlayerAtkStage(dp.monsterlist[2]);
+					if (dp.monsterlist[2].Hp > 0) PlayerAtkStage(dp.monsterlist[2], dp.player.Atk);
 					else deadChk = true; MonsterSelect(); break;
 			}
 		}
 
-		public void PlayerAtkStage(Monster monster)
+		public void PlayerAtkStage(Monster monster, int Atk)
 		{
 			Random playerAtk = new Random();
 			int monsterHp = monster.Hp;
-			double error = (dp.player.Atk / (double)100) * 10;
+			double error = (Atk / (double)100) * 10;
 			int Error = (int)Math.Ceiling(error);
-			int player_Atk = playerAtk.Next(dp.player.Atk - Error, dp.player.Atk + Error + 1);
+			int player_Atk = playerAtk.Next(Atk - Error, Atk + Error + 1);
 			monster.Hp -= player_Atk;
 			Console.Clear();
 			Console.WriteLine("Battle!!");
