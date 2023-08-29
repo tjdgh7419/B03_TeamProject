@@ -34,6 +34,7 @@ namespace Dungeon_Battle
 					dp.player.Def = 5;
 					dp.player.Hp = 100;
 					dp.player.Mp = 50;
+					dp.GameIntro();
 					break;
 
 				case 2:
@@ -42,6 +43,7 @@ namespace Dungeon_Battle
 					dp.player.Def = 3;
 					dp.player.Hp = 80;
 					dp.player.Mp = 100;
+					dp.GameIntro();
 					break;
 
 				case 3:
@@ -50,6 +52,7 @@ namespace Dungeon_Battle
 					dp.player.Def = 4;
 					dp.player.Hp = 90;
 					dp.player.Mp = 70;
+					dp.GameIntro();
 					break;
 			}
 		}
