@@ -150,13 +150,33 @@ namespace Dungeon_Battle
 			double error = (Atk / (double)100) * 10;
 			int Error = (int)Math.Ceiling(error);
 			int player_Atk = playerAtk.Next(Atk - Error, Atk + Error + 1);
-			monster.Hp -= player_Atk;
+			
 			Console.Clear();
 			Console.WriteLine("Battle!!");
 			Console.WriteLine();
 			Console.WriteLine($"{dp.player.Name} 의 공격!");
-			Console.WriteLine($"Lv.{monster.Level} {monster.Name} 을(를) 맞췄습니다. [데미지 : {player_Atk}]");
-			Console.WriteLine();
+
+            if (playerAtk.Next(100) <= 90)//공격 성공률
+            {
+                if (playerAtk.Next(100) <= 15)
+                {
+                    player_Atk = (int)(player_Atk * 1.6); // 크리티컬 데미지 증가
+                    monster.Hp -= player_Atk;
+                    Console.WriteLine($"Lv.{monster.Level} {monster.Name} 을(를) 맞췄습니다. [데미지 : {player_Atk}]-치명타 공격!");
+
+                }
+                else
+                {
+                    monster.Hp -= player_Atk;
+                    Console.WriteLine($"Lv.{monster.Level} {monster.Name} 을(를) 맞췄습니다. [데미지 : {player_Atk}]");
+                }
+            }
+            else
+            {
+                Console.WriteLine($"Lv.{monster.Level} {monster.Name} 을(를) 공격했지만 아무일도 일어나지 않았습니다.");
+            }
+
+            Console.WriteLine();
 			Console.WriteLine($"Lv.{monster.Level} {monster.Name}");
 			if (monster.Hp > 0) Console.WriteLine($"HP {monsterHp} -> {monster.Hp}");
 			else Console.WriteLine($"HP {monsterHp} -> Dead");
@@ -185,13 +205,36 @@ namespace Dungeon_Battle
 					double error = (dp.monsterlist[i].Atk / (double)100) * 10;
 					int Error = (int)Math.Ceiling(error);
 					int monster_Atk = monsterAtk.Next(dp.monsterlist[i].Atk - Error, dp.monsterlist[i].Atk + Error + 1);
-					dp.player.Hp -= monster_Atk;
+
+					
 					Console.Clear();
 					Console.WriteLine("Battle!!");
 					Console.WriteLine();
 					Console.WriteLine($"Lv.{dp.monsterlist[i].Level} {dp.monsterlist[i].Name} 의 공격!");
-					Console.WriteLine($"Lv.{dp.player.Name} 을(를) 맞췄습니다. [데미지 : {monster_Atk}]");
-					Console.WriteLine();
+
+                    if (monsterAtk.Next(100) <= 90)
+                    {
+                        if (monsterAtk.Next(100) <= 15)
+                        {
+                            monster_Atk = (int)(monster_Atk * 1.6); // 크리티컬 데미지 증가
+                            dp.player.Hp -= monster_Atk;
+
+                            Console.WriteLine($"Lv.{dp.player.Name} 을(를) 맞췄습니다. [데미지 : {monster_Atk}]-치명타 공격!");
+                        }
+                        else
+                        {
+                            dp.player.Hp -= monster_Atk;
+                            Console.WriteLine($"Lv.{dp.player.Name} 을(를) 맞췄습니다. [데미지 : {monster_Atk}]");
+                        }
+                    }
+                    else
+                    {
+
+                        Console.WriteLine($"Lv.{dp.player.Name} 을(를) 공격했지만 아무일도 일어나지 않았습니다.");
+                    }
+
+
+                    Console.WriteLine();
 					Console.WriteLine($"Lv.{dp.player.Level} {dp.player.Name}");
 					if (dp.player.Hp > 0) Console.WriteLine($"HP {playerHp} -> {dp.player.Hp}");
 					else Console.WriteLine($"HP {dp.player.Hp} -> Dead");
