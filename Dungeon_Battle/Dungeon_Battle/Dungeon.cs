@@ -16,46 +16,8 @@ namespace Dungeon_Battle
 		
 		public void BattleStage()
 		{
-			Warrior warrior = new Warrior();
-			Bandit bandit = new Bandit();
-			Wizard wizard = new Wizard();
-			bool skillOn = false;
-			Console.Clear();
-			Console.WriteLine("Battle!!");
-			Console.WriteLine();
-
-			for (int i = 0; i < dp.monsterlist.Count; i++)
-			{
-				if (dp.monsterlist[i].Hp > 0)
-					Console.WriteLine($"Lv.{dp.monsterlist[i].Level} {dp.monsterlist[i].Name} HP {dp.monsterlist[i].Hp}");
-				else
-				{
-					Console.WriteLine($"Lv.{dp.monsterlist[i].Level} {dp.monsterlist[i].Name} Dead");
-				}
-			}
-			Console.WriteLine();
-			Console.WriteLine();
-			Console.WriteLine("[내정보]");
-			Console.WriteLine($"Lv.{dp.player.Level}  {dp.player.Name} ({dp.player.Job})");
-			Console.WriteLine($"HP {dp.firstPlayerHp} / {dp.player.Hp}");
-			Console.WriteLine($"MP {dp.firstPlayerMp} / {dp.player.Mp}");
-			Console.WriteLine();
-			Console.WriteLine("1. 공격");
-			Console.WriteLine("2. 스킬");
-			Console.WriteLine();
-			Console.WriteLine("원하시는 행동을 입력해주세요.");
-			Console.Write(">>");
-
-			int input = dp.CheckValidInput(0, 2);
-
-			switch (input)
-			{
-				case 1: MonsterSelect(); break;
-				case 2: if (dp.player.Job == "전사") SkillSelect(warrior);
-					else if (dp.player.Job == "도적") SkillSelect(bandit);
-					else SkillSelect(wizard);
-					break;		
-			}
+			Stage stage = new Stage();
+			stage.Stage1();
 		}
 
 		public void SkillSelect(Skill job)
