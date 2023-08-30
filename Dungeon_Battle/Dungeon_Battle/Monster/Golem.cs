@@ -12,13 +12,14 @@ namespace Dungeon_Battle
 		public int Level { get; set; }
 		public int Hp { get; set; }
 		public int Atk { get; set; }
-
+		public int OriHp { get; set; }
 		public Golem()
 		{
 			Name = "골렘";
 			Level = 7;
 			Atk = 13;
 			Hp = 30;
+			OriHp = 30;
 		}
 	}
 }

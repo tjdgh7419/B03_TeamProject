@@ -12,5 +12,6 @@ namespace Dungeon_Battle
 		int Level { get; set; }
 		int Hp { get; set; }
 		int Atk { get; set; }
+		int OriHp { get; set; }
 	}
 }

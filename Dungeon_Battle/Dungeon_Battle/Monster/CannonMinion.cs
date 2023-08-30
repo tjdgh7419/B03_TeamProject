@@ -12,13 +12,15 @@ namespace Dungeon_Battle
         public int Level { get; set; }
         public int Hp { get; set; }
         public int Atk { get; set; }
+		public int OriHp { get; set; }
 
-        public CannonMinion()
+		public CannonMinion()
         {
             Name = "대포미니언";
             Level = 5;
             Atk = 8;
             Hp = 25;
+            OriHp = 25;
         }
     }
 }

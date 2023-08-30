@@ -12,13 +12,14 @@ namespace Dungeon_Battle
         public int Level { get; set; }
         public int Hp { get; set; }
         public int Atk { get; set; }
-
-        public EmptyWorm()
+		public int OriHp { get; set; }
+		public EmptyWorm()
         {
             Name = "공허충";
             Level = 3;
             Atk = 5;
             Hp = 10;
+            OriHp = 10;
         }
     }
 }

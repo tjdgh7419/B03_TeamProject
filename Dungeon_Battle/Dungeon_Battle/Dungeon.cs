@@ -250,6 +250,8 @@ namespace Dungeon_Battle
 
 		public void Victory()
 		{
+			MonsterHpSet monsterHpSet = new MonsterHpSet();
+			monsterHpSet.MonsterHp_Set();
 			Console.Clear();
 			Console.WriteLine();
 			Console.WriteLine("Victory");
@@ -262,9 +264,7 @@ namespace Dungeon_Battle
 			Console.WriteLine("0. 다음");
 			Console.WriteLine();
 			Console.Write(">>");
-			dp.minion.Hp = 15;
-			dp.cannonminion.Hp = 25;
-			dp.emptyworm.Hp = 10;
+			
 			dp.player.Stage += 1;
 
 			int input = dp.CheckValidInput(0, 0);
@@ -277,6 +277,8 @@ namespace Dungeon_Battle
 
 		public void Lose()
 		{
+			MonsterHpSet monsterHpSet = new MonsterHpSet();
+			monsterHpSet.MonsterHp_Set();
 			dp.player.Hp = 0;
 			Console.Clear();
 			Console.WriteLine();
@@ -289,9 +291,6 @@ namespace Dungeon_Battle
 			Console.WriteLine("0. 다음");
 			Console.WriteLine();
 			Console.Write(">>");
-			dp.minion.Hp = 15;
-			dp.cannonminion.Hp = 25;
-			dp.emptyworm.Hp = 10;
 
 			int input = dp.CheckValidInput(0, 0);
 
