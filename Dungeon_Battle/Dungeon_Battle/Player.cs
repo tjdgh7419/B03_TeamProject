@@ -17,7 +17,8 @@ namespace Dungeon_Battle
 		public int Gold { get; set; }
 		public int Mp { get; set; }
 		public int Avoidance { get; set; }
-		public Player(string name, string job, int level, int atk, int def, int hp, int gold, int mp, int avoidance)
+		public int Stage { get; set; }
+		public Player(string name, string job, int level, int atk, int def, int hp, int gold, int mp, int avoidance, int stage)
 		{
 			Name = name;
 			Job = job;
@@ -28,6 +29,7 @@ namespace Dungeon_Battle
 			Gold = gold;
 			Mp = mp;
 			Avoidance = avoidance;
+			Stage = stage;
 		}
 	}
 }
