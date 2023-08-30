@@ -23,8 +23,8 @@ namespace Dungeon_Battle
 			Console.WriteLine("Lv. " + dp1.player.Level);
 			Console.WriteLine("공격력 : " + dp1.player.Atk);
 			Console.WriteLine("방어력 : " + dp1.player.Def);
-			Console.WriteLine($"체 력 : {dp1.player.OriHp} / {dp1.player.Hp}");
-			Console.WriteLine($"마 나 : {dp1.player.OriMp} / {dp1.player.Mp}");
+			Console.WriteLine($"체 력 : {dp1.player.Hp} / {dp1.player.OriHp}");
+			Console.WriteLine($"마 나 : {dp1.player.Mp} / {dp1.player.OriMp}");
 			Console.WriteLine($"경험치 : {dp1.player.CurExp} / {dp1.player.Exp}");
 			Console.WriteLine("Gold :" + dp1.player.Gold);
 			Console.WriteLine();

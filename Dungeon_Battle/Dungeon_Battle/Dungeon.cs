@@ -266,6 +266,18 @@ namespace Dungeon_Battle
 			Console.Write(">>");
 			
 			dp.player.Stage += 1;
+			if (dp.player.Stage == 1)
+			{
+				dp.player.CurExp += 20;
+				if (dp.player.CurExp >= dp.player.Exp)
+				{
+					dp.player.Level += 1;
+					dp.player.Atk += 1;
+					dp.player.Def += 1;
+					int plus = dp.player.CurExp - dp.player.Exp;
+					dp.player.CurExp = plus;			
+				}
+			}
 
 			int input = dp.CheckValidInput(0, 0);
 
