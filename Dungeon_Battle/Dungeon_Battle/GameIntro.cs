@@ -27,9 +27,7 @@ namespace Dungeon_Battle
 		public Slime slime = new Slime();
 		public List<Monster> monsterlist = new List<Monster>();
 		public List<Monster> hardMonsterlist = new List<Monster>();
-		public Player player = new Player("Sungho", "마법사", 1, 10, 5, 100, 1500, 50, 0, 1);
-		public int firstPlayerHp = 0;
-		public int firstPlayerMp = 0;
+		public Player player = new Player("Sungho", "마법사", 1, 10, 5, 100, 1500, 50, 0, 1, 100, 50);
 		public bool jobChk = false;
 		public DisplayGameIntro()
 		{
@@ -39,8 +37,6 @@ namespace Dungeon_Battle
 			hardMonsterlist.Add(golem);
 			hardMonsterlist.Add(slime);
 			hardMonsterlist.Add(goblin);
-			firstPlayerHp = player.Hp;
-			firstPlayerMp = player.Mp;
 		}
 		public void GameIntro()
 		{
