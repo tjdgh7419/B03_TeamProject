@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Dungeon_Battle
 {
-	public class DisplayGameIntro
+    public class DisplayGameIntro
 	{
 		public static DisplayGameIntro _instance = null;
 		public static DisplayGameIntro Instance()

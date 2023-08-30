@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Dungeon_Battle
 {
-	public class Dungeon
+    public class Dungeon
 	{
 		DisplayGameIntro dp = DisplayGameIntro.Instance();
 		bool deadChk = false;
