@@ -27,7 +27,7 @@ namespace Dungeon_Battle
         }
 
         DisplayGameIntro dp = DisplayGameIntro.Instance();
-        public void skill_1()
+        public void skill_1(List<Monster> monVal)
         {
             bool deadChk = false;
             Dungeon dungeon = new Dungeon();
@@ -35,13 +35,13 @@ namespace Dungeon_Battle
             Console.Clear();
             Console.WriteLine("Battle!!");
             Console.WriteLine();
-            for (int i = 0; i < dp.monsterlist.Count; i++)
+            for (int i = 0; i < monVal.Count; i++)
             {
-                if (dp.monsterlist[i].Hp > 0)
-                    Console.WriteLine($"{i + 1} Lv.{dp.monsterlist[i].Level} {dp.monsterlist[i].Name} HP {dp.monsterlist[i].Hp}");
+                if (monVal[i].Hp > 0)
+                    Console.WriteLine($"{i + 1} Lv.{monVal[i].Level} {monVal[i].Name} HP {monVal[i].Hp}");
                 else
                 {
-                    Console.WriteLine($"{i + 1} Lv.{dp.monsterlist[i].Level} {dp.monsterlist[i].Name} Dead");
+                    Console.WriteLine($"{i + 1} Lv.{monVal[i].Level} {monVal[i].Name} Dead");
                 }
             }
             Console.WriteLine();
@@ -55,30 +55,30 @@ namespace Dungeon_Battle
 
             switch (input)
             {
-                case 1:
-                    if (dp.monsterlist[0].Hp > 0)
-                    {
-                        dp.player.Mp -= skill1Cost; dungeon.PlayerAtkStage(dp.monsterlist[0], skill1Atk);
-                    }
-                    else deadChk = true; skill_1(); break;
-                case 2:
-                    if (dp.monsterlist[1].Hp > 0)
-                    {
-                        dp.player.Mp -= skill1Cost; dungeon.PlayerAtkStage(dp.monsterlist[1], skill1Atk);
-                    }
-                    else deadChk = true; skill_1(); break;
-                case 3:
-                    if (dp.monsterlist[2].Hp > 0)
-                    {
-                        dp.player.Mp -= skill1Cost; dungeon.PlayerAtkStage(dp.monsterlist[2], skill1Atk);
-                    }
-                    else deadChk = true; skill_1(); break;
-            }
+				case 1:
+					if (monVal[0].Hp > 0)
+					{
+						dp.player.Mp -= skill1Cost; dungeon.PlayerAtkStage(monVal[0], skill1Atk, monVal);
+					}
+					else deadChk = true; skill_1(monVal); break;
+				case 2:
+					if (monVal[1].Hp > 0)
+					{
+						dp.player.Mp -= skill1Cost; dungeon.PlayerAtkStage(monVal[1], skill1Atk, monVal);
+					}
+					else deadChk = true; skill_1(monVal); break;
+				case 3:
+					if (monVal[2].Hp > 0)
+					{
+						dp.player.Mp -= skill1Cost; dungeon.PlayerAtkStage(monVal[2], skill1Atk, monVal);
+					}
+					else deadChk = true; skill_1(monVal); break;
+			}
 
 
         }
 
-        public void skill_2()
+        public void skill_2(List<Monster> monVal)
         {
             Dungeon dg = new Dungeon();
             dp.player.Mp -= skill2Cost;
@@ -91,9 +91,9 @@ namespace Dungeon_Battle
             var deadExclude = new HashSet<int>();
             List<int> liveMonster = new List<int>();
             Random playerAtk = new Random();
-            for (int i = 0; i < dp.monsterlist.Count; i++)
+            for (int i = 0; i < monVal.Count; i++)
             {
-                if (dp.monsterlist[i].Hp < 0)
+                if (monVal[i].Hp < 0)
                 {
                     deadExclude.Add(i);
                 }
@@ -110,19 +110,19 @@ namespace Dungeon_Battle
                 foreach (int num in liveMonster)
                 {
                     cnt++;
-                    monsterHp = dp.monsterlist[num].Hp;
+                    monsterHp = monVal[num].Hp;
                     error = skill2Atk / (double)100 * 10;
                     Error = (int)Math.Ceiling(error);
                     player_Atk = playerAtk.Next(skill2Atk - Error, skill2Atk + Error + 1);
-                    dp.monsterlist[num].Hp -= player_Atk;
+					monVal[num].Hp -= player_Atk;
                     Console.Clear();
                     Console.WriteLine("Battle!!");
                     Console.WriteLine();
                     Console.WriteLine($"{dp.player.Name} 의 공격!");
-                    Console.WriteLine($"Lv.{dp.monsterlist[num].Level} {dp.monsterlist[num].Name} 을(를) 맞췄습니다. [데미지 : {player_Atk}]");
+                    Console.WriteLine($"Lv.{monVal[num].Level} {monVal[num].Name} 을(를) 맞췄습니다. [데미지 : {player_Atk}]");
                     Console.WriteLine();
-                    Console.WriteLine($"Lv.{dp.monsterlist[num].Level} {dp.monsterlist[num].Name}");
-                    if (dp.monsterlist[num].Hp > 0) Console.WriteLine($"HP {monsterHp} -> {dp.monsterlist[num].Hp}");
+                    Console.WriteLine($"Lv.{monVal[num].Level} {monVal[num].Name}");
+                    if (monVal[num].Hp > 0) Console.WriteLine($"HP {monsterHp} -> {monVal[num].Hp}");
                     else Console.WriteLine($"HP {monsterHp} -> Dead");
                     Console.WriteLine();
                     Console.WriteLine("0. 다음");
@@ -144,25 +144,25 @@ namespace Dungeon_Battle
             {
                 for (int i = 0; i < 2; i++)
                 {
-                    var range = Enumerable.Range(0, dp.monsterlist.Count).Where(i => !deadExclude.Contains(i));
+                    var range = Enumerable.Range(0, monVal.Count).Where(i => !deadExclude.Contains(i));
                     var monRand = new Random();
-                    int index = monRand.Next(0, dp.monsterlist.Count - deadExclude.Count);
-                    int monVal = range.ElementAt(index);
+                    int index = monRand.Next(0, monVal.Count - deadExclude.Count);
+                    int monNum = range.ElementAt(index);
                     deadExclude.Add(index);
 
-                    monsterHp = dp.monsterlist[monVal].Hp;
+                    monsterHp = monVal[monNum].Hp;
                     error = skill2Atk / (double)100 * 10;
                     Error = (int)Math.Ceiling(error);
                     player_Atk = playerAtk.Next(skill2Atk - Error, skill2Atk + Error + 1);
-                    dp.monsterlist[monVal].Hp -= player_Atk;
+					monVal[monNum].Hp -= player_Atk;
                     Console.Clear();
                     Console.WriteLine("Battle!!");
                     Console.WriteLine();
                     Console.WriteLine($"{dp.player.Name} 의 공격!");
-                    Console.WriteLine($"Lv.{dp.monsterlist[monVal].Level} {dp.monsterlist[monVal].Name} 을(를) 맞췄습니다. [데미지 : {player_Atk}]");
+                    Console.WriteLine($"Lv.{monVal[monNum].Level} {monVal[monNum].Name} 을(를) 맞췄습니다. [데미지 : {player_Atk}]");
                     Console.WriteLine();
-                    Console.WriteLine($"Lv.{dp.monsterlist[monVal].Level} {dp.monsterlist[monVal].Name}");
-                    if (dp.monsterlist[monVal].Hp > 0) Console.WriteLine($"HP {monsterHp} -> {dp.monsterlist[monVal].Hp}");
+                    Console.WriteLine($"Lv.{monVal[monNum].Level} {monVal[monNum].Name}");
+                    if (monVal[monNum].Hp > 0) Console.WriteLine($"HP {monsterHp} -> {monVal[monNum].Hp}");
                     else Console.WriteLine($"HP {monsterHp} -> Dead");
                     Console.WriteLine();
                     Console.WriteLine("0. 다음");
@@ -185,7 +185,7 @@ namespace Dungeon_Battle
 
             switch (input)
             {
-                case 0: dg.MonsterAtkStage(); break;
+               case 0: dg.MonsterAtkStage(monVal); break;
             }
         }
     }

@@ -25,22 +25,24 @@ namespace Dungeon_Battle
         }
 
         DisplayGameIntro dp = DisplayGameIntro.Instance();
-        public void skill_1()
+        public void skill_1(List<Monster> monVal)
         {
+            int i = 1;
             bool deadChk = false;
             Dungeon dungeon = new Dungeon();
             int skill1Atk = (int)(dp.player.Atk * 1.3);
             Console.Clear();
             Console.WriteLine("Battle!!");
             Console.WriteLine();
-            for (int i = 0; i < dp.monsterlist.Count; i++)
+            foreach (Monster val in monVal)
             {
-                if (dp.monsterlist[i].Hp > 0)
-                    Console.WriteLine($"{i + 1} Lv.{dp.monsterlist[i].Level} {dp.monsterlist[i].Name} HP {dp.monsterlist[i].Hp}");
+                if (val.Hp > 0)
+                    Console.WriteLine($"{i} Lv.{val.Level} {val.Name} HP {val.Hp}");
                 else
                 {
-                    Console.WriteLine($"{i + 1} Lv.{dp.monsterlist[i].Level} {dp.monsterlist[i].Name} Dead");
+                    Console.WriteLine($"{i} Lv.{val.Level} {val.Name} Dead");
                 }
+                i++;
             }
             Console.WriteLine();
             Console.WriteLine();
@@ -54,28 +56,29 @@ namespace Dungeon_Battle
             switch (input)
             {
                 case 1:
-                    if (dp.monsterlist[0].Hp > 0)
+                    if (monVal[0].Hp > 0)
                     {
-                        dp.player.Mp -= skill1Cost; dungeon.PlayerAtkStage(dp.monsterlist[0], skill1Atk);
+                        dp.player.Mp -= skill1Cost; dungeon.PlayerAtkStage(monVal[0], skill1Atk, monVal);
                     }
-                    else deadChk = true; skill_1(); break;
+                    else deadChk = true; skill_1(monVal); break;
                 case 2:
-                    if (dp.monsterlist[1].Hp > 0)
+                    if (monVal[1].Hp > 0)
                     {
-                        dp.player.Mp -= skill1Cost; dungeon.PlayerAtkStage(dp.monsterlist[1], skill1Atk);
+                        dp.player.Mp -= skill1Cost; dungeon.PlayerAtkStage(monVal[1], skill1Atk, monVal);
                     }
-                    else deadChk = true; skill_1(); break;
+                    else deadChk = true; skill_1(monVal); break;
                 case 3:
-                    if (dp.monsterlist[2].Hp > 0)
+                    if (monVal[2].Hp > 0)
                     {
-                        dp.player.Mp -= skill1Cost; dungeon.PlayerAtkStage(dp.monsterlist[2], skill1Atk);
+                        dp.player.Mp -= skill1Cost; dungeon.PlayerAtkStage(monVal[2], skill1Atk, monVal);
                     }
-                    else deadChk = true; skill_1(); break;
+                    else deadChk = true; skill_1(monVal); break;
             }
         }
 
-        public void skill_2()
+        public void skill_2(List<Monster> monVal)
         {
+            Stage stage = new Stage();
             Dungeon dungeon = new Dungeon();
             dp.player.Mp -= skill2Cost;
             dp.player.Avoidance += 1;
@@ -90,7 +93,10 @@ namespace Dungeon_Battle
 
             switch (input)
             {
-                case 0: dungeon.BattleStage(); break;
+                case 0:
+					if (dp.player.Stage == 1) stage.Stage1();
+					else if (dp.player.Stage == 2) stage.Stage2(monVal);
+					else if (dp.player.Stage == 3) stage.Stage3(); break; 
             }
         }
     }

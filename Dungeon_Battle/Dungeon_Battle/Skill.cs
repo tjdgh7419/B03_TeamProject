@@ -15,7 +15,7 @@ namespace Dungeon_Battle
 		public int skill1Cost { get; set; }
 		public int skill2Cost { get; set; }
 
-		void skill_1();
-		void skill_2();
+		void skill_1(List<Monster> monVal);
+		void skill_2(List<Monster> monVal);
 	}
 }

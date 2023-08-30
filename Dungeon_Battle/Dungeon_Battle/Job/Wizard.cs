@@ -29,7 +29,7 @@ namespace Dungeon_Battle
 
 
         DisplayGameIntro dp = DisplayGameIntro.Instance();
-        public void skill_1()
+        public void skill_1(List<Monster> monVal)
         {
             bool deadChk = false;
             Dungeon dungeon = new Dungeon();
@@ -57,27 +57,27 @@ namespace Dungeon_Battle
 
             switch (input)
             {
-                case 1:
-                    if (dp.monsterlist[0].Hp > 0)
-                    {
-                        dp.player.Mp -= skill1Cost; dungeon.PlayerAtkStage(dp.monsterlist[0], skill1Atk);
-                    }
-                    else deadChk = true; skill_1(); break;
-                case 2:
-                    if (dp.monsterlist[1].Hp > 0)
-                    {
-                        dp.player.Mp -= skill1Cost; dungeon.PlayerAtkStage(dp.monsterlist[1], skill1Atk);
-                    }
-                    else deadChk = true; skill_1(); break;
-                case 3:
-                    if (dp.monsterlist[2].Hp > 0)
-                    {
-                        dp.player.Mp -= skill1Cost; dungeon.PlayerAtkStage(dp.monsterlist[2], skill1Atk);
-                    }
-                    else deadChk = true; skill_1(); break;
-            }
+				case 1:
+					if (monVal[0].Hp > 0)
+					{
+						dp.player.Mp -= skill1Cost; dungeon.PlayerAtkStage(monVal[0], skill1Atk, monVal);
+					}
+					else deadChk = true; skill_1(monVal); break;
+				case 2:
+					if (monVal[1].Hp > 0)
+					{
+						dp.player.Mp -= skill1Cost; dungeon.PlayerAtkStage(monVal[1], skill1Atk, monVal);
+					}
+					else deadChk = true; skill_1(monVal); break;
+				case 3:
+					if (monVal[2].Hp > 0)
+					{
+						dp.player.Mp -= skill1Cost; dungeon.PlayerAtkStage(monVal[2], skill1Atk, monVal);
+					}
+					else deadChk = true; skill_1(monVal); break;
+			}
         }
-        public void skill_2()
+        public void skill_2(List<Monster> monVal)
         {
             Dungeon dungeon = new Dungeon();
             int skill2Atk = (int)(dp.player.Atk * 1.2);
@@ -120,7 +120,7 @@ namespace Dungeon_Battle
 
             switch (input1)
             {
-                case 0: dungeon.MonsterAtkStage(); break;
+                case 0: dungeon.MonsterAtkStage(monVal); break;
             }
         }
     }
