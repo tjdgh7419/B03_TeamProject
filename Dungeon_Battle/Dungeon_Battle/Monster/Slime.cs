@@ -6,7 +6,19 @@ using System.Threading.Tasks;
 
 namespace Dungeon_Battle
 {
-    internal class Slime
+    internal class Slime : Monster
     {
-    }
+		public string Name { get; set; }
+		public int Level { get; set; }
+		public int Hp { get; set; }
+		public int Atk { get; set; }
+
+		public Slime()
+		{
+			Name = "슬라임";
+			Level = 6;
+			Atk = 12;
+			Hp = 22;
+		}
+	}
 }

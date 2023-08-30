@@ -6,7 +6,19 @@ using System.Threading.Tasks;
 
 namespace Dungeon_Battle
 {
-    internal class Golem
+    internal class Golem : Monster
     {
-    }
+		public string Name { get; set; }
+		public int Level { get; set; }
+		public int Hp { get; set; }
+		public int Atk { get; set; }
+
+		public Golem()
+		{
+			Name = "골렘";
+			Level = 7;
+			Atk = 13;
+			Hp = 30;
+		}
+	}
 }
