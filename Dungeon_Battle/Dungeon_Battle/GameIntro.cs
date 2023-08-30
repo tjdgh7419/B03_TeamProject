@@ -22,8 +22,12 @@ namespace Dungeon_Battle
 		public Minion minion = new Minion();
 		public CannonMinion cannonminion = new CannonMinion();
 		public EmptyWorm emptyworm = new EmptyWorm();
+		public Golem golem = new Golem();
+		public Goblin goblin = new Goblin();
+		public Slime slime = new Slime();
 		public List<Monster> monsterlist = new List<Monster>();
-		public Player player = new Player("Sungho", "마법사", 1, 10, 5, 100, 1500, 50, 0);
+		public List<Monster> hardMonsterlist = new List<Monster>();
+		public Player player = new Player("Sungho", "마법사", 1, 10, 5, 100, 1500, 50, 0, 1);
 		public int firstPlayerHp = 0;
 		public int firstPlayerMp = 0;
 		public bool jobChk = false;
@@ -32,6 +36,9 @@ namespace Dungeon_Battle
 			monsterlist.Add(minion);
 			monsterlist.Add(cannonminion);
 			monsterlist.Add(emptyworm);
+			hardMonsterlist.Add(golem);
+			hardMonsterlist.Add(slime);
+			hardMonsterlist.Add(goblin);
 			firstPlayerHp = player.Hp;
 			firstPlayerMp = player.Mp;
 		}

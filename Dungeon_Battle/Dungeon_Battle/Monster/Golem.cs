@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Dungeon_Battle
 {
-    internal class Golem : Monster
-    {
+	public class Golem : Monster
+	{
 		public string Name { get; set; }
 		public int Level { get; set; }
 		public int Hp { get; set; }

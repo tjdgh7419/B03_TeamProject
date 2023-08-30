@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Dungeon_Battle
 {
-    internal class Slime : Monster
+    public class Slime : Monster
     {
 		public string Name { get; set; }
 		public int Level { get; set; }
