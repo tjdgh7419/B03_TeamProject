@@ -62,14 +62,22 @@ namespace Dungeon_Battle
 			Console.Clear();
 			Console.WriteLine("Battle!!");
 			Console.WriteLine();
+			Random monRan = new Random();
+			List<int> monList = new List<int>();
 
-			for (int i = 0; i < dp.monsterlist.Count; i++)
+			for (int i = 0; i < 3; i++)
 			{
-				if (dp.monsterlist[i].Hp > 0)
-					Console.WriteLine($"Lv.{dp.monsterlist[i].Level} {dp.monsterlist[i].Name} HP {dp.monsterlist[i].Hp}");
+				int ran = monRan.Next(dp.allMonsterlist.Count);
+				monList.Add(ran);
+			}
+			
+			foreach (int val in monList) 
+			{
+				if (dp.allMonsterlist[val].Hp > 0)
+					Console.WriteLine($"Lv.{dp.allMonsterlist[val].Level} {dp.allMonsterlist[val].Name} HP {dp.allMonsterlist[val].Hp}");
 				else
 				{
-					Console.WriteLine($"Lv.{dp.monsterlist[i].Level} {dp.monsterlist[i].Name} Dead");
+					Console.WriteLine($"Lv.{dp.allMonsterlist[val].Level} {dp.allMonsterlist[val].Name} Dead");
 				}
 			}
 			Console.WriteLine();

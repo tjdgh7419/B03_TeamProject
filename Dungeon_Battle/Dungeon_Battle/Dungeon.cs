@@ -17,7 +17,7 @@ namespace Dungeon_Battle
 		public void BattleStage()
 		{
 			Stage stage = new Stage();
-			stage.Stage1();
+			stage.Stage2();
 		}
 
 		public void SkillSelect(Skill job)
@@ -231,7 +231,7 @@ namespace Dungeon_Battle
 			Console.WriteLine("던전에서 몬스터 3마리를 잡았습니다.");
 			Console.WriteLine();
 			Console.WriteLine($"Lv.{dp.player.Level} {dp.player.Name}");
-			Console.WriteLine($"HP {dp.firstPlayerHp} -> {dp.player.Hp}");
+			Console.WriteLine($"HP {dp.player.OriHp} -> {dp.player.Hp}");
 			Console.WriteLine();
 			Console.WriteLine("0. 다음");
 			Console.WriteLine();
@@ -257,7 +257,7 @@ namespace Dungeon_Battle
 			Console.WriteLine();
 			Console.WriteLine();
 			Console.WriteLine($"Lv.{dp.player.Level} {dp.player.Name}");
-			Console.WriteLine($"HP {dp.firstPlayerHp} -> {dp.player.Hp}");
+			Console.WriteLine($"HP {dp.player.OriHp} -> {dp.player.Hp}");
 			Console.WriteLine();
 			Console.WriteLine("0. 다음");
 			Console.WriteLine();

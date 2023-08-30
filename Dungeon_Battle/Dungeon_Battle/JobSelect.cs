@@ -34,6 +34,8 @@ namespace Dungeon_Battle
 					dp.player.Def = 5;
 					dp.player.Hp = 100;
 					dp.player.Mp = 50;
+					dp.player.OriHp = 100;
+					dp.player.OriMp = 50;
 					dp.jobChk = true;
 					dp.GameIntro();
 					break;
@@ -44,6 +46,8 @@ namespace Dungeon_Battle
 					dp.player.Def = 3;
 					dp.player.Hp = 100;
 					dp.player.Mp = 50;
+					dp.player.OriHp = 100;
+					dp.player.OriMp = 50;
 					dp.jobChk = true;
 					dp.GameIntro();
 					break;
@@ -54,6 +58,8 @@ namespace Dungeon_Battle
 					dp.player.Def = 4;
 					dp.player.Hp = 100;
 					dp.player.Mp = 50;
+					dp.player.OriHp = 100;
+					dp.player.OriMp = 50;
 					dp.jobChk = true;
 					dp.GameIntro();
 					break;
