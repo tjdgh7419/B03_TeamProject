@@ -63,19 +63,21 @@ namespace Dungeon_Battle
 			}
 		}
 
-		public void MonsterSelect()
+		public void MonsterSelect(List<Monster> monVal)
 		{
+			int j = 1;
 			Console.Clear();
 			Console.WriteLine("Battle!!");
 			Console.WriteLine();
-			for (int i = 0; i < dp.monsterlist.Count; i++)
+			foreach(Monster val in monVal)
 			{
-				if (dp.monsterlist[i].Hp > 0)
-					Console.WriteLine($"{i + 1}. Lv.{dp.monsterlist[i].Level} {dp.monsterlist[i].Name} HP {dp.monsterlist[i].Hp}");
+				if (val.Hp > 0)
+					Console.WriteLine($"{j}. Lv.{val.Level} {val.Name} HP {val.Hp}");
 				else
 				{
-					Console.WriteLine($"{i + 1}. Lv.{dp.monsterlist[i].Level} {dp.monsterlist[i].Name} Dead");	
+					Console.WriteLine($"{j}. Lv.{val.Level} {val.Name} Dead");	
 				}
+				j++;
 			}
 			
 			Console.WriteLine();
@@ -95,14 +97,14 @@ namespace Dungeon_Battle
 			switch (input)
 			{
 				case 1:
-					if (dp.monsterlist[0].Hp > 0) PlayerAtkStage(dp.monsterlist[0], dp.player.Atk);
-					else deadChk = true; MonsterSelect(); break;
+					if (dp.monsterlist[0].Hp > 0) PlayerAtkStage(monVal[0], dp.player.Atk);
+					else deadChk = true; MonsterSelect(dp.monsterlist); break;
 				case 2:
-					if (dp.monsterlist[1].Hp > 0) PlayerAtkStage(dp.monsterlist[1], dp.player.Atk);
-					else deadChk = true; MonsterSelect(); break;
+					if (dp.monsterlist[1].Hp > 0) PlayerAtkStage(monVal[1], dp.player.Atk);
+					else deadChk = true; MonsterSelect(dp.monsterlist); break;
 				case 3:
-					if (dp.monsterlist[2].Hp > 0) PlayerAtkStage(dp.monsterlist[2], dp.player.Atk);
-					else deadChk = true; MonsterSelect(); break;
+					if (dp.monsterlist[2].Hp > 0) PlayerAtkStage(monVal[2], dp.player.Atk);
+					else deadChk = true; MonsterSelect(dp.monsterlist); break;
 			}
 		}
 

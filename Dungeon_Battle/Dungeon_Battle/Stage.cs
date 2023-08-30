@@ -47,7 +47,7 @@ namespace Dungeon_Battle
 
 			switch (input)
 			{
-				case 1: dungeon.MonsterSelect(); break;
+				case 1: dungeon.MonsterSelect(dp.monsterlist); break;
 				case 2:
 					if (dp.player.Job == "전사") dungeon.SkillSelect(warrior);
 					else if (dp.player.Job == "도적") dungeon.SkillSelect(bandit);
@@ -121,7 +121,7 @@ namespace Dungeon_Battle
 
 			switch (input)
 			{
-				case 1: dungeon.MonsterSelect(); break;
+				case 1: dungeon.MonsterSelect(monList); break;
 				case 2:
 					if (dp.player.Job == "전사") dungeon.SkillSelect(warrior);
 					else if (dp.player.Job == "도적") dungeon.SkillSelect(bandit);
@@ -163,7 +163,7 @@ namespace Dungeon_Battle
 
 			switch (input)
 			{
-				case 1: dungeon.MonsterSelect(); break;
+				case 1: dungeon.MonsterSelect(dp.hardMonsterlist); break;
 				case 2:
 					if (dp.player.Job == "전사") dungeon.SkillSelect(warrior);
 					else if (dp.player.Job == "도적") dungeon.SkillSelect(bandit);
