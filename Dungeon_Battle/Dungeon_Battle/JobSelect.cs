@@ -24,7 +24,7 @@ namespace Dungeon_Battle
 			Console.WriteLine("원하시는 직업을 선택해주세요.");
 			Console.Write(">>");
 
-			int input = dp.CheckValidInput(0, 3);
+			int input = dp.CheckValidInput(1, 3);
 
 			switch (input)
 			{
