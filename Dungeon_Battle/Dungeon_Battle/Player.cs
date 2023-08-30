@@ -37,7 +37,7 @@ namespace Dungeon_Battle
 			OriHp = oriHp;
 			OriMp = oriMp;
 			CurExp = 0;
-			Exp = 40 * Level;
+			Exp = 25 + (10 * level) + (5 * level);
 		}
 	}
 }
