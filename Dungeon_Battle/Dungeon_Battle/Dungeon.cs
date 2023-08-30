@@ -17,7 +17,9 @@ namespace Dungeon_Battle
 		{
 			Stage stage = new Stage();
 			Stage2Monster stage2Monster = new Stage2Monster();
-			stage.Stage2(stage2Monster.Stage2_Monster());
+			if (dp.player.Stage == 1) stage.Stage1();
+			else if (dp.player.Stage == 2) stage.Stage2(stage2Monster.Stage2_Monster());
+			else if (dp.player.Stage == 3) stage.Stage3();
 		}
 
 		public void SkillSelect(Skill job, List<Monster> monVal)
@@ -27,7 +29,7 @@ namespace Dungeon_Battle
 			Console.WriteLine("Battle!!");
 			Console.WriteLine();
 
-			foreach(Monster val in monVal)
+			foreach (Monster val in monVal)
 			{
 				if (val.Hp > 0)
 					Console.WriteLine($"Lv.{val.Level} {val.Name} HP {val.Hp}");
@@ -63,7 +65,7 @@ namespace Dungeon_Battle
 					if (dp.player.Stage == 1) stage.Stage1();
 					else if (dp.player.Stage == 2) stage.Stage2(monVal);
 					else if (dp.player.Stage == 3) stage.Stage3(); break;
-					
+
 
 			}
 		}
@@ -102,14 +104,14 @@ namespace Dungeon_Battle
 			switch (input)
 			{
 				case 1:
-					if (dp.monsterlist[0].Hp > 0) PlayerAtkStage(monVal[0], dp.player.Atk, monVal);
-					else deadChk = true; MonsterSelect(dp.monsterlist); break;
+					if (monVal[0].Hp > 0) PlayerAtkStage(monVal[0], dp.player.Atk, monVal);
+					else deadChk = true; MonsterSelect(monVal); break;
 				case 2:
-					if (dp.monsterlist[1].Hp > 0) PlayerAtkStage(monVal[1], dp.player.Atk, monVal);
-					else deadChk = true; MonsterSelect(dp.monsterlist); break;
+					if (monVal[1].Hp > 0) PlayerAtkStage(monVal[1], dp.player.Atk, monVal);
+					else deadChk = true; MonsterSelect(monVal); break;
 				case 3:
-					if (dp.monsterlist[2].Hp > 0) PlayerAtkStage(monVal[2], dp.player.Atk, monVal);
-					else deadChk = true; MonsterSelect(dp.monsterlist); break;
+					if (monVal[2].Hp > 0) PlayerAtkStage(monVal[2], dp.player.Atk, monVal);
+					else deadChk = true; MonsterSelect(monVal); break;
 			}
 		}
 
@@ -167,6 +169,15 @@ namespace Dungeon_Battle
 		{
 			Stage stage = new Stage();
 			int deadCnt = 0;
+			foreach (Monster num in monVal)
+			{
+				if (num.Hp <= 0)
+				{
+					deadCnt++;
+				}
+			}
+			if (deadCnt == 3) Victory();
+
 			foreach (Monster val in monVal)
 			{
 				if (val.Hp > 0)
@@ -221,13 +232,13 @@ namespace Dungeon_Battle
 						case 0: break;
 					}
 				}
-				else
-					deadCnt++;
 			}
-			if (deadCnt == 3) Victory();
-			else if (dp.player.Hp <= 0) Lose();
+		
+			if (dp.player.Hp <= 0) Lose();
 
-			stage.Stage2(monVal);
+			if (dp.player.Stage == 1) stage.Stage1();
+			else if (dp.player.Stage == 2) stage.Stage2(monVal);
+			else if (dp.player.Stage == 3) stage.Stage3();
 		}
 
 		public void Victory()
@@ -247,6 +258,7 @@ namespace Dungeon_Battle
 			dp.minion.Hp = 15;
 			dp.cannonminion.Hp = 25;
 			dp.emptyworm.Hp = 10;
+			dp.player.Stage += 1;
 
 			int input = dp.CheckValidInput(0, 0);
 

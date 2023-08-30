@@ -55,7 +55,7 @@ namespace Dungeon_Battle
 			Console.WriteLine();
 			Console.WriteLine("2. 인벤토리");
 			Console.WriteLine();
-			Console.WriteLine("3. 던전 입장");
+			Console.WriteLine($"3. 던전 입장 (Dungeon : {player.Stage} 층) ");
 			Console.WriteLine();
 			Console.WriteLine();
 			Console.WriteLine("4. 종료");
