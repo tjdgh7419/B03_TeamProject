@@ -20,6 +20,8 @@ namespace Dungeon_Battle
 		public int Stage { get; set; }
 		public int OriHp { get; set; }
 		public int OriMp { get; set; }
+		public int CurExp { get; set; }
+		public int Exp { get; set; }
 		public Player(string name, string job, int level, int atk, int def, int hp, int gold, int mp, int avoidance, int stage, int oriHp, int oriMp)
 		{
 			Name = name;
@@ -34,6 +36,8 @@ namespace Dungeon_Battle
 			Stage = stage;
 			OriHp = oriHp;
 			OriMp = oriMp;
+			CurExp = 0;
+			Exp = 40;
 		}
 	}
 }
