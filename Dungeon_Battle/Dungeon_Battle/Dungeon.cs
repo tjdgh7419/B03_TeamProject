@@ -13,6 +13,7 @@ namespace Dungeon_Battle
 	{
 		DisplayGameIntro dp = DisplayGameIntro.Instance();
 		bool deadChk = false;
+		bool mpChk = false;
 		public void BattleStage()
 		{
 			Stage stage = new Stage();
@@ -25,6 +26,7 @@ namespace Dungeon_Battle
 		public void SkillSelect(Skill job, List<Monster> monVal)
 		{
 			Stage stage = new Stage();
+			
 			Console.Clear();
 			Console.WriteLine("Battle!!");
 			Console.WriteLine();
@@ -52,6 +54,9 @@ namespace Dungeon_Battle
 			Console.WriteLine();
 			Console.WriteLine("0. 취소");
 			Console.WriteLine();
+			if (mpChk) Console.WriteLine("마나가 부족합니다.");
+			Console.WriteLine();
+			mpChk = false;
 			Console.WriteLine("원하시는 행동을 입력해주세요.");
 			Console.Write(">>");
 
@@ -59,8 +64,10 @@ namespace Dungeon_Battle
 
 			switch (input)
 			{
-				case 1: job.skill_1(monVal); break;
-				case 2: job.skill_2(monVal); break;
+				case 1: if(dp.player.Mp >= job.skill1Cost) job.skill_1(monVal); 
+						else mpChk = true; SkillSelect(job, monVal); break;
+				case 2: if (dp.player.Mp >= job.skill2Cost) job.skill_2(monVal);
+						else mpChk = true; SkillSelect(job, monVal); break;
 				case 0:
 					if (dp.player.Stage == 1) stage.Stage1();
 					else if (dp.player.Stage == 2) stage.Stage2(monVal);

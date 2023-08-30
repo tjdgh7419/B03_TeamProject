@@ -62,7 +62,7 @@ namespace Dungeon_Battle
 			Console.WriteLine();
 			Console.WriteLine("원하시는 행동을 입력해주세요.");
 
-			int input = CheckValidInput(0, 4);
+			int input = CheckValidInput(1, 4);
 
 			switch (input)
 			{
@@ -91,11 +91,6 @@ namespace Dungeon_Battle
 					Console.WriteLine("종료하기");
 					break;
 
-				default:
-					Console.Clear();
-					Console.WriteLine("잘못된 입력입니다.");
-
-					break;
 			}
 
 		}

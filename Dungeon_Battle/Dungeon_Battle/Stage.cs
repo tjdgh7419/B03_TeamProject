@@ -43,7 +43,7 @@ namespace Dungeon_Battle
 			Console.WriteLine("원하시는 행동을 입력해주세요.");
 			Console.Write(">>");
 
-			int input = dp.CheckValidInput(0, 2);
+			int input = dp.CheckValidInput(1, 2);
 
 			switch (input)
 			{
@@ -85,7 +85,7 @@ namespace Dungeon_Battle
 			Console.WriteLine("원하시는 행동을 입력해주세요.");
 			Console.Write(">>");
 
-			int input = dp.CheckValidInput(0, 2);
+			int input = dp.CheckValidInput(1, 2);
 
 			switch (input)
 			{
@@ -127,7 +127,7 @@ namespace Dungeon_Battle
 			Console.WriteLine("원하시는 행동을 입력해주세요.");
 			Console.Write(">>");
 
-			int input = dp.CheckValidInput(0, 2);
+			int input = dp.CheckValidInput(1, 2);
 
 			switch (input)
 			{
