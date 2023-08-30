@@ -137,13 +137,13 @@ namespace Dungeon_Battle
 			Console.WriteLine("Battle!!");
 			Console.WriteLine();
 
-			for (int i = 0; i < dp.monsterlist.Count; i++)
+			for (int i = 0; i < dp.hardMonsterlist.Count; i++)
 			{
 				if (dp.monsterlist[i].Hp > 0)
-					Console.WriteLine($"Lv.{dp.monsterlist[i].Level} {dp.monsterlist[i].Name} HP {dp.monsterlist[i].Hp}");
+					Console.WriteLine($"Lv.{dp.hardMonsterlist[i].Level} {dp.hardMonsterlist[i].Name} HP {dp.hardMonsterlist[i].Hp}");
 				else
 				{
-					Console.WriteLine($"Lv.{dp.monsterlist[i].Level} {dp.monsterlist[i].Name} Dead");
+					Console.WriteLine($"Lv.{dp.hardMonsterlist[i].Level} {dp.hardMonsterlist[i].Name} Dead");
 				}
 			}
 			Console.WriteLine();

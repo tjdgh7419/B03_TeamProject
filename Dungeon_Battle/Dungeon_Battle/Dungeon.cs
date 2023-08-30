@@ -17,7 +17,7 @@ namespace Dungeon_Battle
 		public void BattleStage()
 		{
 			Stage stage = new Stage();
-			stage.Stage2();
+			stage.Stage3();
 		}
 
 		public void SkillSelect(Skill job)
