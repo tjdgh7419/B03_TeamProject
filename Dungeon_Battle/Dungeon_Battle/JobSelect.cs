@@ -14,7 +14,7 @@ namespace Dungeon_Battle
 			Console.Clear();
 			Console.WriteLine("직업을 선택해주세요.");
 			Console.WriteLine();
-			Console.WriteLine();
+			Console.WriteLine("");
 			Console.WriteLine("1. 전사");
 			Console.WriteLine();
 			Console.WriteLine("2. 마법사");
