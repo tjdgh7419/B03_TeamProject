@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CreateNewCharacter;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,8 +12,9 @@ namespace Dungeon_Battle
 
         public void ShowIntro()
         {
-            JobSelect jobSelect = new JobSelect();
-            Console.Title = "Dungeon_Battle";
+			CreateNewCharater createNewCharater = new CreateNewCharater();
+
+			Console.Title = "Dungeon_Battle";
 
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("====================================================================================");
@@ -36,7 +38,7 @@ namespace Dungeon_Battle
             switch (keyInfo.Key)
             {
                 case ConsoleKey.D1:
-                    jobSelect.Job_Select();                 
+                    createNewCharater.Create_NewCharacter();                
                     break;
                 case ConsoleKey.D2:
                     
