@@ -16,7 +16,9 @@ namespace Dungeon_Battle
 		public string skill2Info { get; set; }
 		public int skill1Cost { get; set; }
 		public int skill2Cost { get; set; }
-		public Warrior()
+        public int Attack { get; internal set; }
+
+        public Warrior()
 		{
 			skill1 = "알파 스트라이크";
 			skill2 = "더블 스트라이크";
