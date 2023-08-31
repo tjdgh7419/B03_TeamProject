@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Intrinsics.Arm;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -9,45 +10,90 @@ namespace Dungeon_Battle
 {
     internal class Intro
     {
-
-        public void ShowIntro()
+		bool click1 = false;
+		bool click2 = false;
+		bool click3 = false;
+        bool click1Chk = false;
+		bool click2Chk = false;
+		bool click3Chk = false;
+		public void ShowIntro()
         {
-			CreateNewCharater createNewCharater = new CreateNewCharater();
-
-			Console.Title = "Dungeon_Battle";
+            Console.Clear();
+            CreateNewCharater createNewCharater = new CreateNewCharater();
+            ConsoleHelper.SetCurrentFont("바탕", 17);
+            Console.Title = "Dungeon And Battle";
 
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("====================================================================================");
             Console.WriteLine();
-            Console.WriteLine("                            Dungeon_Battle                                          ");
+            Console.WriteLine(String.Format("{0}", "Dungeon And Battle").PadLeft(84 - (42 - ("Dungeon And Battle".Length / 2))));
             Console.WriteLine("DOWA team");
             Console.WriteLine("====================================================================================");
             Console.WriteLine();
             Console.WriteLine();
-            Console.WriteLine("                               1. New Game");
+            if (!click1) Console.WriteLine(String.Format("{0}", "1. New Game").PadLeft(84 - (42 - ("New Game".Length / 2))));
+            else Console.WriteLine(String.Format("{0}", "-->  1. New Game").PadLeft(84 - (42 - ("New Game".Length / 2))));
             Console.WriteLine();
-            Console.WriteLine("                               2. Load Game");
+            if (!click2) Console.WriteLine(String.Format("{0}", "2. Load Game").PadLeft(85 - (42 - ("Load Game".Length / 2))));
+            else Console.WriteLine(String.Format("{0}", "-->  2. Load Game").PadLeft(85 - (42 - ("Load Game".Length / 2))));
             Console.WriteLine();
-            Console.WriteLine("                               3. Quit");
+            if (!click3) Console.WriteLine(String.Format("{0}", "3. Quit").PadLeft(82 - (42 - ("Quit".Length / 2))));
+            else Console.WriteLine(String.Format("-->  {0}", "3. Quit").PadLeft(82 - (42 - ("Quit".Length / 2))));
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine("====================================================================================");
+            Console.WriteLine();
+            Console.WriteLine();
+            if (click1) Console.WriteLine(String.Format("{0}", "새로운 게임을 시작합니다").PadLeft(80 - (42 - ("새로운 게임을 시작합니다".Length / 2))));
+            if (click2) Console.WriteLine(String.Format("{0}", "저장된 게임을 시작합니다").PadLeft(80 - (42 - ("새로운 게임을 시작합니다".Length / 2))));
+            if (click3) Console.WriteLine(String.Format("{0}", "게임을 종료합니다").PadLeft(80 - (42 - ("게임을 종료합니다".Length / 2))));
             Console.WriteLine();
             Console.WriteLine();
             Console.WriteLine("====================================================================================");
 
-            ConsoleKeyInfo keyInfo = Console.ReadKey();
 
+            click1 = false;
+            click2 = false;
+            click3 = false;
+
+            ConsoleKeyInfo keyInfo = Console.ReadKey();
             switch (keyInfo.Key)
             {
                 case ConsoleKey.D1:
-                    createNewCharater.Create_NewCharacter();                
+                    if (!click1Chk)
+                    {
+                        click1 = true;
+                        click1Chk = true;
+						click2Chk = false;
+						click3Chk = false;
+						ShowIntro();
+                    }
+                    else createNewCharater.Create_NewCharacter();
                     break;
                 case ConsoleKey.D2:
-                    
-                    LoadGame();
-                    break;
+
+					if (!click2Chk)
+					{
+						click2 = true;
+						click2Chk = true;
+						click1Chk = false;
+						click3Chk = false;
+						ShowIntro();
+					}
+					else createNewCharater.Create_NewCharacter();
+					break;
                 case ConsoleKey.D3:
-                    
-                    QuitGame();
-                    break;
+
+					if (!click3Chk)
+					{
+						click3 = true;
+						click3Chk = true;
+						click2Chk = false;
+						click1Chk = false;
+						ShowIntro();
+					}
+					else Console.WriteLine("게임을 종료합니다"); Environment.Exit(0);
+					break;
                 default:
                     Console.Clear();
                     Console.WriteLine("잘못된 입력입니다.");
