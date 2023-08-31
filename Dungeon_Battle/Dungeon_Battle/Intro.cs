@@ -33,13 +33,13 @@ namespace Dungeon_Battle
 			Console.WriteLine();
 			Console.WriteLine();
 			if (!click1) Console.WriteLine(String.Format("{0}", "1. New Game").PadLeft(84 - (42 - ("New Game".Length / 2))));
-			else Console.WriteLine(String.Format("{0}", "-->  1. New Game").PadLeft(84 - (42 - ("New Game".Length / 2))));
+			else Console.WriteLine(String.Format("{0}", "-->  1. [New Game]").PadLeft(84 - (42 - ("[New Game]".Length / 2))));
 			Console.WriteLine();
 			if (!click2) Console.WriteLine(String.Format("{0}", "2. Load Game").PadLeft(85 - (42 - ("Load Game".Length / 2))));
-			else Console.WriteLine(String.Format("{0}", "-->  2. Load Game").PadLeft(85 - (42 - ("Load Game".Length / 2))));
+			else Console.WriteLine(String.Format("{0}", "-->  2. [Load Game]").PadLeft(85 - (42 - ("[Load Game]".Length / 2))));
 			Console.WriteLine();
 			if (!click3) Console.WriteLine(String.Format("{0}", "3. Quit").PadLeft(82 - (42 - ("Quit".Length / 2))));
-			else Console.WriteLine(String.Format("-->  {0}", "3. Quit").PadLeft(82 - (42 - ("Quit".Length / 2))));
+			else Console.WriteLine(String.Format("-->  {0}", "3. [Quit]").PadLeft(82 - (42 - ("[Quit]".Length / 2))));
 			Console.WriteLine();
 			Console.WriteLine();
 			Console.WriteLine("====================================================================================");
