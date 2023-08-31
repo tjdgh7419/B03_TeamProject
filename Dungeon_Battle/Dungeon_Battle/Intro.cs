@@ -51,9 +51,11 @@ namespace Dungeon_Battle
 			Console.WriteLine();
 			Console.WriteLine();
 			Console.WriteLine("====================================================================================");
+			Console.WriteLine();
+			if(click1Chk || click2Chk || click3Chk)
+			Console.WriteLine("실행하시려면 숫자를 한 번 더 눌러주세요!");
 
-
-			click1 = false;
+            click1 = false;
 			click2 = false;
 			click3 = false;
 
