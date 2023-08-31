@@ -30,6 +30,8 @@ namespace Dungeon_Battle
 		public List<Monster> hardMonsterlist = new List<Monster>();
 		public Player player = new Player("Sungho", "마법사", 1, 10, 5, 100, 1500, 50, 0, 1, 100, 50);
 		public bool jobChk = false;
+		public bool Layer2 = false;
+		public bool Layer3 = false;
 		public DisplayGameIntro()
 		{
 			monsterlist.Add(minion);

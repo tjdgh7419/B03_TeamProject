@@ -265,8 +265,10 @@ namespace Dungeon_Battle
 			Console.WriteLine("0. 다음");
 			Console.WriteLine();
 			Console.Write(">>");
-			
-			dp.player.Stage += 1;
+
+			if (dp.player.Stage == 1 && !dp.Layer2) dp.Layer2 = true;
+			if (dp.player.Stage == 2 && !dp.Layer3) dp.Layer3 = true;
+
 			lvUp.PlayerLvUp(dp.player.Level);
 
 			int input = dp.CheckValidInput(0, 0);
