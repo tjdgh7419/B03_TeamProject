@@ -18,7 +18,9 @@ namespace Dungeon_Battle
 			}
 			return _instance;
 		}
+
 		
+		public List<IItem> potionList = new List<IItem>() {new HealthPotion(), new StrengthPotion()};
 		public Minion minion = new Minion();
 		public CannonMinion cannonminion = new CannonMinion();
 		public EmptyWorm emptyworm = new EmptyWorm();
@@ -45,7 +47,9 @@ namespace Dungeon_Battle
 		}
 		public void GameIntro()
 		{
+			
 			StageSelect stageSelect = new StageSelect();
+			Inventory inventory = new Inventory();
 			JobSelect jobSelect = new JobSelect();
 			Status status = new Status();
 			Dungeon dg = new Dungeon();
@@ -79,7 +83,7 @@ namespace Dungeon_Battle
 				case 2:
 
 					Console.Clear();
-					Console.WriteLine("Inventory");
+					inventory.AddItem();
 					break;
 
 				case 3:

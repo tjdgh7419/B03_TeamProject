@@ -9,47 +9,30 @@ using System.Threading.Tasks;
 
 namespace Dungeon_Battle
 {
-    internal class Inventory
+    public class Inventory
     {
-        private List<IItem> items = new List<IItem>();
+        DisplayGameIntro dp = DisplayGameIntro.Instance();
 
-        // 생성자에서 체력 포션 3개 추가
-        public Inventory()
+        
+        public void AddItem()
         {
-            items.Add(new IItem("Health Potion", 3));
-        }
-
-        public void AddItem(string name, int quantity)
-        {
-            var existingItem = items.Find(item => item.Name == name);
-            if (existingItem != null)
+            // 생성자에서 체력 포션 3개 추가
+            Console.Clear();
+            Console.WriteLine("인벤토리");
+            Console.WriteLine();
+            for(int i = 0; i < dp.potionList.Count; i++)
             {
-                existingItem.Quantity += quantity;
+                Console.WriteLine($"아이템 이름 : {dp.potionList[i].Name} 아이템 수량 : ");
             }
-            else
-            {
-                items.Add(new IItem(name, quantity));
-            }
-        }
 
-        public void ShowInventory()
-        {
-            foreach (var item in items)
-            {
-                System.Console.WriteLine(item.ToString());
-            }
-        }
+            // 1아이템 선택
+            // 2아이템 장착해제
+            //3아이템 장착
 
-        public static void Main()
-        {
-            Inventory myInventory = new Inventory();
-          
-            myInventory.AddItem("HealthPotion", 3);  // 체력포션의 수량이 증가해야 합니다.
+            int input = dp.CheckValidInput(1, 3);
 
-            myInventory.ShowInventory();
+         
         }
+       
     }
-
-
-
 }
