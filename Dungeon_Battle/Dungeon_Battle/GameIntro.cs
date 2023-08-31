@@ -43,6 +43,7 @@ namespace Dungeon_Battle
 		}
 		public void GameIntro()
 		{
+			StageSelect stageSelect = new StageSelect();
 			JobSelect jobSelect = new JobSelect();
 			Status status = new Status();
 			Dungeon dg = new Dungeon();
@@ -57,12 +58,13 @@ namespace Dungeon_Battle
 			Console.WriteLine();
 			Console.WriteLine($"3. 던전 입장 (Dungeon : {player.Stage} 층) ");
 			Console.WriteLine();
+			Console.WriteLine("4. 던전 선택");
 			Console.WriteLine();
-			Console.WriteLine("4. 종료");
+			Console.WriteLine("0. 종료");
 			Console.WriteLine();
 			Console.WriteLine("원하시는 행동을 입력해주세요.");
 
-			int input = CheckValidInput(1, 4);
+			int input = CheckValidInput(0, 4);
 
 			switch (input)
 			{
@@ -88,10 +90,14 @@ namespace Dungeon_Battle
 				case 4:
 
 					Console.Clear();
-					Console.WriteLine("종료하기");
+					stageSelect.Stage_Select();
 					break;
 
-			}
+				case 0:
+                    Console.WriteLine("게임을 종료합니다.");
+					Environment.Exit(0);break;
+
+            }
 
 		}
 		public int CheckValidInput(int min, int max)
