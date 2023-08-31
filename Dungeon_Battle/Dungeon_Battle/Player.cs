@@ -8,7 +8,7 @@ namespace Dungeon_Battle
 {
 	public class Player
 	{
-		public string Name { get; }
+		public string Name { get; set; }
 		public string Job { get; }
 		public int Level { get; }
 		public int Atk { get; }
