@@ -1,23 +1,23 @@
 # B03-TeamProject
 Chapter 3. 프로그래밍 심화 팀과제 
-##  DOWA조 Team Notion
+## :children_crossing: DOWA조 Team Notion
 URL : <https://teamsparta.notion.site/03-DOWA-d3d9f6acad5e4636b5ab79adf8856c26>
- ## 프로젝트 소개
+ ## :one: 프로젝트 소개
 원하는 직업을 골라 던전을 클리어 하며 성장하는 RPG게임 입니다.
-## 개발기간
+## :two: 개발기간
 - 22.08.28(월) ~ 22.09.01(금)
 
-### 멤버구성
+### :raising_hand: 멤버구성
 - 강성호 -  직업 선택 기능(도적, 전사, 마법사), 스테이지 추가(계층 식), 스테이지 선택, 스킬 기능(직업 스킬), 전투 시작(플레이어 공격, 몬스터 공격, 승리, 패배), 몬스터 종류 추가(6종류), 레벨업 기능, UI
 
 - 신해준 - 게임 시작 화면 , 회피 기능, 치명타 기능
 -  송유섭 - 캐릭터 생성 기능, 상태 보기
 - 심우진 - 회복 아이템, 보상 추가, 아이템 적용
 
-### 개발 환경 
+### :hammer: 개발 환경 
 - IDE - Visual Studio
 
-## 구현 목록
+## :clipboard: 구현 목록
 ### 게임 시작 화면 - Intro.cs
 New Game으로 새로운 게임 시작이 가능합니다.
 Load Game으로 저장된 게임 시작이 가능합니다.(미구현)
