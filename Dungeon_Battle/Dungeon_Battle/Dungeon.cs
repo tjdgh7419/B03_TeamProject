@@ -47,7 +47,7 @@ namespace Dungeon_Battle
 			Console.WriteLine();
 			Console.WriteLine("[내정보]");
 			Console.WriteLine($"Lv.{dp.player.Level}  {dp.player.Name} ({dp.player.Job})");
-			Console.WriteLine($"HP 100 / {dp.player.Hp}");
+			Console.WriteLine($"HP {dp.player.OriHp} / {dp.player.Hp}");
 			Console.WriteLine();
 			Console.WriteLine($"1. {job.skill1} - MP {job.skill1Cost}");
 			Console.WriteLine($"{job.skill1Info}");
@@ -105,7 +105,7 @@ namespace Dungeon_Battle
 			Console.WriteLine();
 			Console.WriteLine("[내정보]");
 			Console.WriteLine($"Lv.{dp.player.Level}  {dp.player.Name} ({dp.player.Job})");
-			Console.WriteLine($"HP 100 / {dp.player.Hp}");
+			Console.WriteLine($"HP {dp.player.OriHp} / {dp.player.Hp}");
 			Console.WriteLine();
 			Console.WriteLine();
             Console.WriteLine("[====================================================================================]");

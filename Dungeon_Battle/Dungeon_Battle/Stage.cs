@@ -120,7 +120,7 @@ namespace Dungeon_Battle
 
             for (int i = 0; i < dp.hardMonsterlist.Count; i++)
 			{
-				if (dp.monsterlist[i].Hp > 0)
+				if (dp.hardMonsterlist[i].Hp > 0)
 					Console.WriteLine($"Lv.{dp.hardMonsterlist[i].Level} {dp.hardMonsterlist[i].Name} HP {dp.hardMonsterlist[i].Hp}");
 				else
 				{
