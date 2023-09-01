@@ -32,8 +32,11 @@ namespace Dungeon_Battle
             Dungeon dungeon = new Dungeon();
             int skill1Atk = (int)(dp.player.Atk * 1.3);
             Console.Clear();
-            Console.WriteLine("Battle!!");
-            Console.WriteLine();
+            Console.WriteLine("[====================================================================================]");
+            Console.WriteLine("[                                                                                    ]");
+            Console.WriteLine("[                                     Battle!!                                       ]");
+            Console.WriteLine("[                                                                                    ]");
+            Console.WriteLine("[====================================================================================]");
             foreach (Monster val in monVal)
             {
                 if (val.Hp > 0)
@@ -46,6 +49,7 @@ namespace Dungeon_Battle
             }
             Console.WriteLine();
             Console.WriteLine();
+            Console.WriteLine("[====================================================================================]");
             Console.WriteLine("대상을 선택해주세요.");
             Console.Write(">>");
             if (deadChk) Console.WriteLine("잘못된 입력입니다.");

@@ -17,11 +17,14 @@ namespace Dungeon_Battle
 		public void Stage1()
 		{
 			bool skillOn = false;
-			Console.Clear();
-			Console.WriteLine("Battle!!");
-			Console.WriteLine();
+            Console.Clear();
+            Console.WriteLine("[====================================================================================]");
+            Console.WriteLine("[                                                                                    ]");
+            Console.WriteLine("[                                     Battle!!                                       ]");
+            Console.WriteLine("[                                                                                    ]");
+            Console.WriteLine("[====================================================================================]");
 
-			for (int i = 0; i < dp.monsterlist.Count; i++)
+            for (int i = 0; i < dp.monsterlist.Count; i++)
 			{
 				if (dp.monsterlist[i].Hp > 0)
 					Console.WriteLine($"Lv.{dp.monsterlist[i].Level} {dp.monsterlist[i].Name} HP {dp.monsterlist[i].Hp}");
@@ -30,7 +33,8 @@ namespace Dungeon_Battle
 					Console.WriteLine($"Lv.{dp.monsterlist[i].Level} {dp.monsterlist[i].Name} Dead");
 				}
 			}
-			Console.WriteLine();
+            Console.WriteLine("[====================================================================================]");
+            Console.WriteLine();
 			Console.WriteLine();
 			Console.WriteLine("[내정보]");
 			Console.WriteLine($"Lv.{dp.player.Level}  {dp.player.Name} ({dp.player.Job})");
@@ -40,7 +44,8 @@ namespace Dungeon_Battle
 			Console.WriteLine("1. 공격");
 			Console.WriteLine("2. 스킬");
 			Console.WriteLine();
-			Console.WriteLine("원하시는 행동을 입력해주세요.");
+            Console.WriteLine("[====================================================================================]");
+            Console.WriteLine("원하시는 행동을 입력해주세요.");
 			Console.Write(">>");
 
 			int input = dp.CheckValidInput(1, 2);
@@ -59,11 +64,14 @@ namespace Dungeon_Battle
 		public void Stage2(List<Monster> monList)
 		{
 			bool skillOn = false;
-			Console.Clear();
-			Console.WriteLine("Battle!!");
-			Console.WriteLine();		
-			
-			foreach (Monster val in monList) 
+            Console.Clear();
+            Console.WriteLine("[====================================================================================]");
+            Console.WriteLine("[                                                                                    ]");
+            Console.WriteLine("[                                     Battle!!                                       ]");
+            Console.WriteLine("[                                                                                    ]");
+            Console.WriteLine("[====================================================================================]");
+
+            foreach (Monster val in monList) 
 			{
 				if (val.Hp > 0)
 					Console.WriteLine($"Lv.{val.Level} {val.Name} HP {val.Hp}");
@@ -72,7 +80,8 @@ namespace Dungeon_Battle
 					Console.WriteLine($"Lv.{val.Level} {val.Name} Dead");
 				}
 			}
-			Console.WriteLine();
+            Console.WriteLine("[====================================================================================]");
+            Console.WriteLine();
 			Console.WriteLine();
 			Console.WriteLine("[내정보]");
 			Console.WriteLine($"Lv.{dp.player.Level}  {dp.player.Name} ({dp.player.Job})");
@@ -82,7 +91,8 @@ namespace Dungeon_Battle
 			Console.WriteLine("1. 공격");
 			Console.WriteLine("2. 스킬");
 			Console.WriteLine();
-			Console.WriteLine("원하시는 행동을 입력해주세요.");
+            Console.WriteLine("[====================================================================================]");
+            Console.WriteLine("원하시는 행동을 입력해주세요.");
 			Console.Write(">>");
 
 			int input = dp.CheckValidInput(1, 2);
@@ -102,10 +112,13 @@ namespace Dungeon_Battle
 		{
 			bool skillOn = false;
 			Console.Clear();
-			Console.WriteLine("Battle!!");
-			Console.WriteLine();
+            Console.WriteLine("[====================================================================================]");
+            Console.WriteLine("[                                                                                    ]");
+            Console.WriteLine("[                                     Battle!!                                       ]");
+            Console.WriteLine("[                                                                                    ]");
+            Console.WriteLine("[====================================================================================]");
 
-			for (int i = 0; i < dp.hardMonsterlist.Count; i++)
+            for (int i = 0; i < dp.hardMonsterlist.Count; i++)
 			{
 				if (dp.monsterlist[i].Hp > 0)
 					Console.WriteLine($"Lv.{dp.hardMonsterlist[i].Level} {dp.hardMonsterlist[i].Name} HP {dp.hardMonsterlist[i].Hp}");
@@ -114,7 +127,8 @@ namespace Dungeon_Battle
 					Console.WriteLine($"Lv.{dp.hardMonsterlist[i].Level} {dp.hardMonsterlist[i].Name} Dead");
 				}
 			}
-			Console.WriteLine();
+            Console.WriteLine("[====================================================================================]");
+            Console.WriteLine();
 			Console.WriteLine();
 			Console.WriteLine("[내정보]");
 			Console.WriteLine($"Lv.{dp.player.Level}  {dp.player.Name} ({dp.player.Job})");
@@ -124,7 +138,8 @@ namespace Dungeon_Battle
 			Console.WriteLine("1. 공격");
 			Console.WriteLine("2. 스킬");
 			Console.WriteLine();
-			Console.WriteLine("원하시는 행동을 입력해주세요.");
+            Console.WriteLine("[====================================================================================]");
+            Console.WriteLine("원하시는 행동을 입력해주세요.");
 			Console.Write(">>");
 
 			int input = dp.CheckValidInput(1, 2);

@@ -13,24 +13,28 @@ namespace Dungeon_Battle
 		public void Stage_Select()
 		{
 			int range = 1;
-
-			Console.WriteLine("해금된 층");
-			Console.WriteLine();
-			Console.WriteLine("1층");
+            Console.WriteLine("[====================================================================================]");
+            Console.WriteLine("[                                                                                    ]");
+            Console.WriteLine("[                                     해금된 층                                      ]");
+            Console.WriteLine("[                                                                                    ]");
+            Console.WriteLine("[====================================================================================]");
+            Console.WriteLine();
+			Console.WriteLine("                                        1층");
 			Console.WriteLine();
 			if (dp.Layer2)
 			{
-				Console.WriteLine("2층");
-				Console.WriteLine();
+			Console.WriteLine("                                        2층");
+			Console.WriteLine();
 			}
 			if (dp.Layer3)
 			{			
-				Console.WriteLine("3층(마지막 층)");
-				Console.WriteLine();
-			}
-			Console.WriteLine("0. 나가기");
+			Console.WriteLine("                                        3층(마지막 층)");
 			Console.WriteLine();
-			Console.WriteLine("원하시는 층을 선택해주세요");
+			}
+			Console.WriteLine("                                        0. 나가기");
+			Console.WriteLine();
+            Console.WriteLine("[====================================================================================]");
+            Console.WriteLine("원하시는 층을 선택해주세요");
 			Console.Write(">>");
 
 			if (dp.Layer2) range += 1;
