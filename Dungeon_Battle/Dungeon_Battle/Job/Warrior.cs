@@ -34,10 +34,13 @@ namespace Dungeon_Battle
 			bool deadChk = false;
 			Dungeon dungeon = new Dungeon();
 			int skill1Atk = dp.player.Atk * 2;
-			Console.Clear();
-			Console.WriteLine("Battle!!");
-			Console.WriteLine();
-			for (int i = 0; i < monVal.Count; i++)
+            Console.Clear();
+            Console.WriteLine("[====================================================================================]");
+            Console.WriteLine("[                                                                                    ]");
+            Console.WriteLine("[                                     Battle!!                                       ]");
+            Console.WriteLine("[                                                                                    ]");
+            Console.WriteLine("[====================================================================================]");
+            for (int i = 0; i < monVal.Count; i++)
 			{
 				if (monVal[i].Hp > 0)
 					Console.WriteLine($"{i + 1} Lv.{monVal[i].Level} {monVal[i].Name} HP {monVal[i].Hp}");
@@ -48,7 +51,8 @@ namespace Dungeon_Battle
 			}
 			Console.WriteLine();
 			Console.WriteLine();
-			Console.WriteLine("대상을 선택해주세요.");
+            Console.WriteLine("[====================================================================================]");
+            Console.WriteLine("대상을 선택해주세요.");
 			Console.Write(">>");
 			if (deadChk) Console.WriteLine("잘못된 입력입니다.");
 			deadChk = false;
@@ -117,17 +121,22 @@ namespace Dungeon_Battle
 					Error = (int)Math.Ceiling(error);
 					player_Atk = playerAtk.Next(skill2Atk - Error, skill2Atk + Error + 1);
 					monVal[num].Hp -= player_Atk;
-					Console.Clear();
-					Console.WriteLine("Battle!!");
-					Console.WriteLine();
-					Console.WriteLine($"{dp.player.Name} 의 공격!");
+                    Console.Clear();
+                    Console.WriteLine("[====================================================================================]");
+                    Console.WriteLine("[                                                                                    ]");
+                    Console.WriteLine("[                                     Battle!!                                       ]");
+                    Console.WriteLine("[                                                                                    ]");
+                    Console.WriteLine("[====================================================================================]");
+                    Console.WriteLine($"{dp.player.Name} 의 공격!");
 					Console.WriteLine($"Lv.{monVal[num].Level} {monVal[num].Name} 을(를) 맞췄습니다. [데미지 : {player_Atk}]");
 					Console.WriteLine();
-					Console.WriteLine($"Lv.{monVal[num].Level} {monVal[num].Name}");
+                    Console.WriteLine("[====================================================================================]");
+                    Console.WriteLine($"Lv.{monVal[num].Level} {monVal[num].Name}");
 					if (monVal[num].Hp > 0) Console.WriteLine($"HP {monsterHp} -> {monVal[num].Hp}");
 					else Console.WriteLine($"HP {monsterHp} -> Dead");
 					Console.WriteLine();
-					Console.WriteLine("0. 다음");
+                    Console.WriteLine("[====================================================================================]");
+                    Console.WriteLine("0. 다음");
 					Console.WriteLine();
 					Console.Write(">>");
 
@@ -149,17 +158,22 @@ namespace Dungeon_Battle
 					Error = (int)Math.Ceiling(error);
 					player_Atk = playerAtk.Next(skill2Atk - Error, skill2Atk + Error + 1);
 					monVal[monNum].Hp -= player_Atk;
-					Console.Clear();
-					Console.WriteLine("Battle!!");
-					Console.WriteLine();
-					Console.WriteLine($"{dp.player.Name} 의 공격!");
+                    Console.Clear();
+                    Console.WriteLine("[====================================================================================]");
+                    Console.WriteLine("[                                                                                    ]");
+                    Console.WriteLine("[                                     Battle!!                                       ]");
+                    Console.WriteLine("[                                                                                    ]");
+                    Console.WriteLine("[====================================================================================]");
+                    Console.WriteLine($"{dp.player.Name} 의 공격!");
 					Console.WriteLine($"Lv.{monVal[monNum].Level} {monVal[monNum].Name} 을(를) 맞췄습니다. [데미지 : {player_Atk}]");
 					Console.WriteLine();
-					Console.WriteLine($"Lv.{monVal[monNum].Level} {monVal[monNum].Name}");
+                    Console.WriteLine("[====================================================================================]");
+                    Console.WriteLine($"Lv.{monVal[monNum].Level} {monVal[monNum].Name}");
 					if (monVal[monNum].Hp > 0) Console.WriteLine($"HP {monsterHp} -> {monVal[monNum].Hp}");
 					else Console.WriteLine($"HP {monsterHp} -> Dead");
 					Console.WriteLine();
-					Console.WriteLine("0. 다음");
+                    Console.WriteLine("[====================================================================================]");
+                    Console.WriteLine("0. 다음");
 					Console.WriteLine();
 					Console.Write(">>");
 

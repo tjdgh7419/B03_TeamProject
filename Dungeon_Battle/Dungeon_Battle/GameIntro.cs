@@ -55,22 +55,26 @@ namespace Dungeon_Battle
 			Dungeon dg = new Dungeon();
 			Console.Clear();
 			if(!jobChk) jobSelect.Job_Select();
-			Console.WriteLine("스파르타 마을에 오신 여러분 환영합니다.");
-			Console.WriteLine("이곳에서 던전으로 들어가기 전 활동을 할 수 있습니다.");
-			Console.WriteLine();
-			Console.WriteLine("1. 상태보기");
-			Console.WriteLine();
-			Console.WriteLine("2. 인벤토리");
-			Console.WriteLine();
-			Console.WriteLine($"3. 던전 입장 (Dungeon : {player.Stage} 층) ");
-			Console.WriteLine();
-			Console.WriteLine("4. 던전 선택");
-			Console.WriteLine();
-			Console.WriteLine("0. 종료");
-			Console.WriteLine();
-			Console.WriteLine("원하시는 행동을 입력해주세요.");
+            Console.WriteLine("[====================================================================================]");
+            Console.WriteLine("[                       스파르타 마을에 오신 여러분 환영합니다.                      ]");
+            Console.WriteLine("[                 이곳에서 던전으로 들어가기 전 활동을 할 수 있습니다.               ]");
+            Console.WriteLine("[====================================================================================]");
+            Console.WriteLine();
+            Console.WriteLine("                                  1. 상태보기");
+            Console.WriteLine();
+            Console.WriteLine("                                  2. 인벤토리");
+            Console.WriteLine();
+            Console.WriteLine($"                                  3. 던전 입장 (Dungeon : {player.Stage} 층)");
+            Console.WriteLine();
+            Console.WriteLine("                                  4. 던전 선택");
+            Console.WriteLine();
+            Console.WriteLine("                                  0. 종료");
+            Console.WriteLine();
+            Console.WriteLine("[====================================================================================]");
 
-			int input = CheckValidInput(0, 4);
+            Console.Write("원하시는 행동을 입력해주세요: ");
+
+            int input = CheckValidInput(0, 4);
 
 			switch (input)
 			{
